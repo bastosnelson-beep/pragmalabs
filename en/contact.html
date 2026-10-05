@@ -38,8 +38,12 @@
     </div>
   </section>
 
-  <!-- Form: wire a service (Formspree, Netlify Forms, n8n webhook) on action -->
-  <form class="contact-form" action="#" method="post">
+  <!-- Form wired to the n8n webhook (workflow PragmaLabs - Formulaire Contact) -->
+  <form class="contact-form"
+        data-sending="Sending..."
+        data-success="Message sent. We will get back to you shortly."
+        data-error="Send failed. Try again or email contact@pragma4.com.">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
     <div class="row">
       <input type="text" name="name" placeholder="Name" required />
       <input type="email" name="email" placeholder="Email" required />

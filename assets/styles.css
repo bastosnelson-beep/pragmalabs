@@ -426,6 +426,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 }
 .contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent); }
 .contact-form button { align-self: flex-end; border: none; cursor: pointer; }
+.form-status { font-size: 14px; color: var(--muted); min-height: 20px; }
 
 /* ---------- Animations reveal ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
