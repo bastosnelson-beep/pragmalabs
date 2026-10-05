@@ -238,14 +238,16 @@ section { padding: 110px 0; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 32px;
+  display: flex;
+  flex-direction: column;
 }
 .pillar .fig { font-size: 12px; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
 .pillar h3 { font-size: 22px; font-weight: 600; margin: 12px 0 10px; }
-.pillar p { color: var(--muted); font-size: 15px; }
+.pillar p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
 .pillar .visual {
-  height: 160px;
+  aspect-ratio: 16 / 9;   /* proportions natives des images, sans recadrage */
   border-radius: var(--radius-sm);
-  margin-top: 24px;
+  margin-top: auto;        /* visuels alignés en bas des cartes */
   background: repeating-linear-gradient(45deg, var(--border) 0 1px, transparent 1px 12px);
 }
 
