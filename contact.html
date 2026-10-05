@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PragmaLabs | Nous contacter</title>
+  <meta name="description" content="Réservez un échange avec l'équipe PragmaLabs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Pragma<span>Labs</span></a>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html#capabilities">Capacités</a>
+        <a href="index.html#method">Méthode</a>
+        <a href="index.html#news">Actualités</a>
+        <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+        <div class="lang-switch" aria-label="Choix de la langue">
+          <a href="contact.html" class="active">FR</a>
+          <a href="en/contact.html">EN</a>
+          <a href="pt/contact.html">PT</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <section class="contact-hero">
+    <div class="container">
+      <span class="label">Nous contacter</span>
+      <h1>Réservez un échange avec notre équipe</h1>
+      <p>Nous aidons les organisations les plus exigeantes à devenir natives de l'IA, en transformant l'intelligence de pointe en gains chiffrés sur leur résultat.</p>
+    </div>
+  </section>
+
+  <!-- Formulaire : brancher un service (Formspree, Netlify Forms, n8n webhook) sur action -->
+  <form class="contact-form" action="#" method="post">
+    <div class="row">
+      <input type="text" name="name" placeholder="Nom" required />
+      <input type="email" name="email" placeholder="Email" required />
+    </div>
+    <div class="row">
+      <input type="tel" name="phone" placeholder="Téléphone (optionnel)" />
+      <input type="text" name="company" placeholder="Entreprise" />
+    </div>
+    <textarea name="message" rows="6" placeholder="Message" required></textarea>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
+
+  <footer>
+    <div class="container footer-bottom">
+      <span>© 2026 PragmaLabs. Tous droits réservés.</span>
+      <div class="socials">
+        <a href="#">LINKEDIN</a>
+      </div>
+    </div>
+    <div class="wordmark" aria-hidden="true">PRAGMALABS</div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
