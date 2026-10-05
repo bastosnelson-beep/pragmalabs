@@ -383,6 +383,53 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 /* Unité discrète à côté d'un chiffre clé */
 .stat .value small { font-size: .4em; font-weight: 500; color: var(--muted); letter-spacing: 0; }
 
+
+/* ---------- Diagramme animé « Le Noyau » (assets/noyau.js) ---------- */
+.noyau-diagram { position: relative; width: 100%; overflow: hidden; border-radius: var(--radius); margin-top: 40px; }
+.noyau-diagram .nd-sizer { pointer-events: none; }
+.noyau-diagram.nd-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.noyau-diagram .nd-stage {
+  position: absolute; left: 0; top: 0; width: 1300px; height: 870px; transform-origin: 0 0;
+  background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  font-family: var(--font); color: var(--text);
+}
+.nd-glow { position: absolute; left: 443px; top: 233px; width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(32,96,223,.22) 0%, rgba(32,96,223,.08) 40%, rgba(32,96,223,0) 70%); }
+.nd-lines { position: absolute; inset: 0; pointer-events: none; }
+.nd-ring { fill: none; stroke: #C9D3EA; stroke-width: 1.2; stroke-dasharray: 3 5; animation: nd-flow 2.4s linear infinite; }
+.nd-flow { fill: none; stroke-width: 1.6; stroke-dasharray: 6 6; animation: nd-flow 1.4s linear infinite; }
+.nd-in { stroke: #9AA8C7; }
+.nd-out { stroke: #2060DF; stroke-opacity: .55; }
+@keyframes nd-flow { to { stroke-dashoffset: -20; } }
+.nd-caption { position: absolute; top: 42px; font-size: 12px; font-style: italic; color: var(--muted); }
+.nd-beam { position: absolute; left: 450px; top: 422px; width: 385px; height: 22px;
+  background: linear-gradient(90deg, rgba(32,96,223,.08), rgba(32,96,223,.32) 35%, rgba(32,96,223,.32) 65%, rgba(32,96,223,.08)); }
+.nd-core { position: absolute; left: 567px; top: 357px; width: 152px; height: 152px; box-sizing: border-box; border-radius: 50%;
+  background: #FFFFFF; border: 12px solid #0B1B3F; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  box-shadow: 0 10px 30px rgba(32,96,223,.18); z-index: 3; }
+.nd-core-name { font-weight: 700; font-size: 13px; letter-spacing: -.01em; color: #0B1B3F; line-height: 1.1; }
+.nd-core-sub { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-weight: 600; font-size: 10px; letter-spacing: .28em; padding-left: .28em; color: #2060DF; }
+.nd-title { position: absolute; left: 493px; top: 525px; width: 300px; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 3;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace; text-align: center; }
+.nd-title div:first-child { font-weight: 600; font-size: 14px; letter-spacing: .28em; color: #0B1B3F; }
+.nd-title div:last-child { font-weight: 500; font-size: 10px; letter-spacing: .3em; color: #2060DF; white-space: nowrap; }
+.nd-card { position: absolute; width: 235px; height: 60px; display: flex; align-items: center; gap: 12px; padding: 0 14px; box-sizing: border-box;
+  background: #FFFFFF; border: 1px solid #ECECF0; border-radius: 10px; z-index: 2;
+  box-shadow: 0 1px 2px rgba(16,24,40,.04), 0 6px 16px rgba(16,24,40,.05); transition: transform .2s; }
+.nd-card:hover { transform: translateY(-2px); }
+.nd-card b { display: block; font-weight: 600; font-size: 14px; color: #0B1B3F; }
+.nd-card small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.nd-ico { width: 32px; height: 32px; flex: none; border-radius: 8px; display: grid; place-items: center; }
+.nd-card-in .nd-ico { background: var(--surface); }
+.nd-card-out .nd-ico { background: #EAF0FC; }
+.nd-orbit { position: absolute; left: 0; top: 0; width: 120px; display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 4;
+  pointer-events: none; will-change: transform; }
+.nd-orbit-ico { width: 44px; height: 44px; border-radius: 50%; background: #FFFFFF; display: grid; place-items: center;
+  box-shadow: 0 0 0 6px rgba(255,255,255,.6), 0 4px 14px rgba(11,27,63,.15); }
+.nd-orbit-label { font-size: 13px; font-weight: 600; color: #0B1B3F; background: rgba(255,255,255,.92); padding: 3px 10px; border-radius: 999px; border: 1px solid #E8E9EE; }
+.nd-still .nd-flow, .nd-still .nd-ring { animation: none; }
+@media (prefers-reduced-motion: reduce) { .nd-flow, .nd-ring { animation: none; } }
+
 /* ---------- Page contact ---------- */
 .contact-hero { padding: 120px 0 64px; text-align: center; }
 .contact-hero h1 { font-size: clamp(34px, 5vw, 56px); font-weight: 600; letter-spacing: -.03em; margin-top: 16px; }
