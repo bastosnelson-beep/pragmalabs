@@ -29,11 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
       status.textContent = form.dataset.sending || 'Envoi en cours...';
       const data = new FormData(form);
       data.set('lang', document.documentElement.lang || 'fr');
+      // Libellé lisible de l'objet (ex. « Postuler ») pour les emails, en plus du code
+      const type = form.querySelector('select[name="request_type"]');
+      if (type && type.selectedIndex > 0) data.set('request_type_label', type.options[type.selectedIndex].text);
       try {
-        await fetch('https://adamlippes.app.n8n.cloud/webhook/pragmalabs-contact', {
+        const res = await fetch('https://adamlippes.app.n8n.cloud/webhook/pragmalabs-contact', {
           method: 'POST',
           body: data
         });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         status.textContent = form.dataset.success || 'Message envoyé.';
         form.reset();
       } catch (err) {

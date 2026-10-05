@@ -46,6 +46,14 @@
         data-error="Send failed. Try again or email contact@pragma4.com.">
     <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
     <div class="row">
+      <select name="request_type" required aria-label="Subject of your request">
+        <option value="" disabled selected>Subject of your request</option>
+        <option value="information">Information request</option>
+        <option value="candidature">Apply</option>
+      </select>
+      <input type="text" name="country" placeholder="Country" autocomplete="country-name" required />
+    </div>
+    <div class="row">
       <input type="text" name="name" placeholder="Name" required />
       <input type="email" name="email" placeholder="Email" required />
     </div>

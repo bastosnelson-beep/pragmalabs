@@ -41,10 +41,18 @@
 
   <!-- Formulário ligado ao webhook n8n (workflow PragmaLabs - Formulaire Contact) -->
   <form class="contact-form"
-        data-sending="Enviando..."
+        data-sending="A enviar..."
         data-success="Mensagem enviada. Entraremos em contacto em breve."
         data-error="Falha no envio. Tente novamente ou escreva para contact@pragma4.com.">
     <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+    <div class="row">
+      <select name="request_type" required aria-label="Assunto do seu pedido">
+        <option value="" disabled selected>Assunto do seu pedido</option>
+        <option value="information">Pedido de informações</option>
+        <option value="candidature">Candidatar-se</option>
+      </select>
+      <input type="text" name="country" placeholder="País" autocomplete="country-name" required />
+    </div>
     <div class="row">
       <input type="text" name="name" placeholder="Nome" required />
       <input type="email" name="email" placeholder="Email" required />

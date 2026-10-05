@@ -46,6 +46,14 @@
         data-error="Erreur d'envoi. Réessayez ou écrivez à contact@pragma4.com.">
     <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
     <div class="row">
+      <select name="request_type" required aria-label="Objet de votre demande">
+        <option value="" disabled selected>Objet de votre demande</option>
+        <option value="information">Demande d'informations</option>
+        <option value="candidature">Postuler</option>
+      </select>
+      <input type="text" name="country" placeholder="Pays" autocomplete="country-name" required />
+    </div>
+    <div class="row">
       <input type="text" name="name" placeholder="Nom" required />
       <input type="email" name="email" placeholder="Email" required />
     </div>
