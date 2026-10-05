@@ -62,6 +62,11 @@
       <input type="text" name="company" placeholder="Company" />
     </div>
     <textarea name="message" rows="6" placeholder="Message" required></textarea>
+    <label class="file-field">
+      <span class="file-label">Attachments (optional): 2 files max, 5 MB each · PDF, Word, JPG, PNG</span>
+      <input type="file" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
+             data-too-many="You can attach up to 2 files." data-too-big="Each file must be under 5 MB: " data-bad-type="Format not accepted (PDF, Word, JPG or PNG): " />
+    </label>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 

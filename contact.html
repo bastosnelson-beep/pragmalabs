@@ -62,6 +62,11 @@
       <input type="text" name="company" placeholder="Entreprise" />
     </div>
     <textarea name="message" rows="6" placeholder="Message" required></textarea>
+    <label class="file-field">
+      <span class="file-label">Pièces jointes (optionnel) : 2 fichiers max, 5 Mo chacun · PDF, Word, JPG, PNG</span>
+      <input type="file" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
+             data-too-many="Vous pouvez joindre 2 fichiers au maximum." data-too-big="Chaque fichier doit faire moins de 5 Mo : " data-bad-type="Format non accepté (PDF, Word, JPG ou PNG) : " />
+    </label>
     <button type="submit" class="btn btn-primary">Envoyer</button>
   </form>
 
