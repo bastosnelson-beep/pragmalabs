@@ -374,24 +374,26 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
+  padding-top: 24px;
+  padding-bottom: 24px;
   font-size: 13px;
   color: var(--muted);
   flex-wrap: wrap;
   gap: 12px;
 }
 .footer-bottom .socials { display: flex; gap: 20px; }
+.footer-brand { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.footer-logo img { display: block; height: 44px; width: auto; }
 .wordmark {
-  font-size: clamp(60px, 14vw, 220px);
-  font-weight: 700;
-  letter-spacing: -.04em;
-  line-height: .9;
-  text-align: center;
-  color: var(--text);
+  display: flex;
+  justify-content: center;
   opacity: .08;
   user-select: none;
-  transform: translateY(12%);
+  pointer-events: none;
+  transform: translateY(14%);
+  padding: 0 16px;
 }
+.wordmark img { display: block; width: min(1100px, 100%); height: auto; }
 
 /* ---------- Page contact ---------- */
 .contact-hero { padding: 120px 0 64px; text-align: center; }
