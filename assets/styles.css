@@ -312,7 +312,7 @@ section { padding: 110px 0; }
   font-weight: 500;
 }
 .feature-group ul li:last-child { border-bottom: none; }
-.feature-group .li-note { display: block; margin-top: 6px; font-size: 13px; line-height: 1.5; font-style: italic; color: var(--muted); }
+.feature-group .group-note { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; line-height: 1.6; font-style: italic; color: var(--muted); }
 .diagram-placeholder {
   height: 260px;
   border-radius: var(--radius);
