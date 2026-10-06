@@ -328,7 +328,16 @@ section { padding: 110px 0; }
 
 /* ---------- Timeline ---------- */
 .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.tl-item { border-top: 2px solid var(--text); padding-top: 20px; }
+.tl-item { position: relative; border-top: 2px solid var(--text); padding-top: 20px; margin-top: calc(1.5cm + 14px); }
+/* Ronds noirs croissants posés au-dessus de chaque ligne : la valeur grandit à chaque étape */
+.tl-item::before {
+  content: ""; position: absolute; left: 0; bottom: calc(100% + 12px);
+  width: var(--dot, .5cm); height: var(--dot, .5cm); border-radius: 50%; background: #0A0A0A;
+}
+.tl-item:nth-child(1) { --dot: .5cm; }
+.tl-item:nth-child(2) { --dot: .75cm; }
+.tl-item:nth-child(3) { --dot: 1cm; }
+.tl-item:nth-child(4) { --dot: 1.5cm; }
 .tl-item .label { display: block; color: var(--accent); }
 .tl-item h4 { font-size: 18px; font-weight: 600; margin-top: 10px; }
 .tl-item p { color: var(--muted); font-size: 14px; margin-top: 6px; }
