@@ -1,5 +1,12 @@
 // PRAGMALABS - interactions de base
 document.addEventListener('DOMContentLoaded', () => {
+  // Choix manuel de langue (FR / EN / PT) mémorisé : il prime sur la langue du navigateur
+  document.querySelectorAll('.lang-switch a').forEach((a) => {
+    a.addEventListener('click', () => {
+      try { localStorage.setItem('pl-lang', a.textContent.trim().toLowerCase()); } catch (e) {}
+    });
+  });
+
   // Menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
