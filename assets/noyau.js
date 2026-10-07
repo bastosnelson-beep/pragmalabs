@@ -104,7 +104,7 @@
   var IN_ICONS = ['chat', 'doc', 'video', 'book', 'db', 'social', 'audio'];
   var OUT_ICONS = ['mail', 'calendar', 'pen', 'screen', 'target', 'check', 'support'];
   var ORBIT_ICONS = ['model', 'context', 'agents', 'process'];
-  var ORBIT_COLORS = ['#2060DF', '#5B6E99', '#0B1B3F', '#7887AB'];
+  var ORBIT_COLORS = ['#2BC77A', '#6B6A66', '#14161C', '#9C9A93'];
 
   function build(root) {
     var lang = (root.dataset.lang || document.documentElement.lang || 'fr').slice(0, 2);
@@ -115,7 +115,7 @@
     var svg = '<svg class="nd-lines" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true">';
     svg += '<circle class="nd-ring" cx="' + CX + '" cy="' + CY + '" r="' + R + '"/>';
     [[557, 133], [803, 156], [877, 241], [727, 217], [450, 300], [790, 590], [537, 776], [856, 595], [430, 198]].forEach(function (d, i) {
-      svg += '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="' + (i % 3 === 0 ? 4 : 2.5) + '" fill="#D5DAE6"/>';
+      svg += '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="' + (i % 3 === 0 ? 4 : 2.5) + '" fill="#D9D6CF"/>';
     });
     IN_POS.forEach(function (p) {
       var x = p[0] + 235, y = p[1] + 30;
@@ -132,17 +132,17 @@
     html += '<div class="nd-caption" style="left:110px">' + esc(t.left) + '</div>';
     html += '<div class="nd-caption" style="right:160px">' + esc(t.right) + '</div>';
     html += '<div class="nd-beam"></div>';
-    html += '<div class="nd-core">' + icon('brain', 50, '#2060DF') +
+    html += '<div class="nd-core">' + icon('brain', 50, '#138A52') +
       '<div class="nd-core-name">' + esc(t.core) + '</div><div class="nd-core-sub">' + esc(t.coreSub) + '</div></div>';
     html += '<div class="nd-title"><div>' + esc(t.title) + '</div><div>' + esc(t.subtitle) + '</div></div>';
     IN_POS.forEach(function (p, i) {
       html += '<div class="nd-card nd-card-in" style="left:' + p[0] + 'px;top:' + p[1] + 'px">' +
-        '<span class="nd-ico">' + icon(IN_ICONS[i], 19, '#0B1B3F') + '</span>' +
+        '<span class="nd-ico">' + icon(IN_ICONS[i], 19, '#14161C') + '</span>' +
         '<span><b>' + esc(t.inputs[i][0]) + '</b><small>' + esc(t.inputs[i][1]) + '</small></span></div>';
     });
     OUT_POS.forEach(function (p, i) {
       html += '<div class="nd-card nd-card-out" style="left:' + p[0] + 'px;top:' + p[1] + 'px">' +
-        '<span class="nd-ico">' + icon(OUT_ICONS[i], 19, '#2060DF') + '</span><b>' + esc(t.outputs[i]) + '</b></div>';
+        '<span class="nd-ico">' + icon(OUT_ICONS[i], 19, '#138A52') + '</span><b>' + esc(t.outputs[i]) + '</b></div>';
     });
     t.orbit.forEach(function (label, i) {
       html += '<div class="nd-orbit"><span class="nd-orbit-ico" style="color:' + ORBIT_COLORS[i] + '">' +
