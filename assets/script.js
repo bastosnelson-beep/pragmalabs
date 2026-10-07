@@ -1,4 +1,4 @@
-// PRAGMALABS - interactions de base
+// PRAGMA4 - interactions de base
 document.addEventListener('DOMContentLoaded', () => {
   // Choix manuel de langue (FR / EN / PT) mémorisé : il prime sur la langue du navigateur
   document.querySelectorAll('.lang-switch a').forEach((a) => {

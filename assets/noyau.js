@@ -1,5 +1,5 @@
 /* ============================================================
-   PRAGMALABS - Diagramme animé « Le Noyau »
+   PRAGMA4 - Diagramme animé « Le Noyau »
    Les entrées dispersées du quotidien convergent vers le Noyau
    (second cerveau), qui les transforme en travail exécuté.
    Scène fixe 1300 x 870, mise à l'échelle de son conteneur.

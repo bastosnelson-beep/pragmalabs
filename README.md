@@ -1,11 +1,11 @@
-# PragmaLabs
+# Pragma4
 
-Site multilingue (FR / EN / PT) inspiré de l'architecture de augustalabs.ai, reconstruit à l'identique fonctionnellement mais avec une rédaction originale adaptée à PragmaLabs (pas de copie de leur code ni de leurs textes, qui sont leur propriété).
+Site multilingue (FR / EN / PT) inspiré de l'architecture de augustalabs.ai, reconstruit à l'identique fonctionnellement mais avec une rédaction originale adaptée à Pragma4 (pas de copie de leur code ni de leurs textes, qui sont leur propriété).
 
 ## Structure
 
 ```
-pragmalabs/
+pragma4/
 ├── index.html          # Accueil FR (défaut)
 ├── contact.html        # Contact FR
 ├── en/index.html       # Accueil EN
