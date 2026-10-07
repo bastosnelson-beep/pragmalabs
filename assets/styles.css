@@ -84,8 +84,8 @@ ul { list-style: none; }
   height: 100%;
 }
 .logo { display: inline-flex; align-items: center; }
-.logo img { display: block; height: 48px; width: auto; }
-@media (max-width: 420px) { .logo img { height: 40px; } }
+.logo img { display: block; height: 54px; width: auto; }
+@media (max-width: 420px) { .logo img { height: 44px; } }
 .nav-links {
   display: flex;
   align-items: center;
@@ -381,7 +381,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 }
 .footer-bottom .socials { display: flex; gap: 20px; }
 .footer-brand { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.footer-logo img { display: block; height: 44px; width: auto; }
+.footer-logo img { display: block; height: 50px; width: auto; }
 .wordmark {
   display: flex;
   justify-content: center;
