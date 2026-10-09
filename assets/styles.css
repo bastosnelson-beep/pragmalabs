@@ -380,6 +380,9 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
   gap: 12px;
 }
 .footer-bottom .socials { display: flex; gap: 20px; }
+.li-link { display: inline-flex; align-items: center; gap: 8px; }
+.li-link .li-ico { flex: none; transition: transform .2s ease; }
+.li-link:hover .li-ico { transform: translateY(-1px); }
 .footer-brand { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .footer-logo img { display: block; height: 50px; width: auto; }
 .wordmark {
