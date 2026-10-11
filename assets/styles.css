@@ -627,7 +627,8 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 /* Bouton flottant « retour à l'accueil » (page Services ouverte depuis l'accueil) */
 #capabilities { scroll-margin-top: var(--nav-height); }
 .back-to-home {
-  position: fixed; left: 24px; bottom: 24px; z-index: 60;
+  position: fixed; bottom: 24px; z-index: 60;
+  left: max(24px, calc((100vw - var(--container)) / 2 + 24px)); /* aligné sur le bord du contenu sur grand écran */
   display: inline-flex; align-items: center; gap: 10px;
   padding: 14px 22px; border-radius: 999px;
   background: var(--ink); color: #FFFFFF; font-size: 14px; font-weight: 500;
