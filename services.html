@@ -2,31 +2,28 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <link rel="alternate" hreflang="fr" href="https://pragma4.com/services.html" />
-  <link rel="alternate" hreflang="en" href="https://pragma4.com/en/services.html" />
-  <link rel="alternate" hreflang="pt" href="https://pragma4.com/pt/services.html" />
-  <link rel="alternate" hreflang="x-default" href="https://pragma4.com/en/services.html" />
-  <script>
-    (function () {
-      try {
-        if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
-        var saved = null;
-        try { saved = localStorage.getItem('pl-lang'); } catch (e) {}
-        if (saved === 'fr') return;
-        var target = saved;
-        if (!target) {
-          var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
-          var first = String(langs[0] || '').toLowerCase();
-          target = first.indexOf('fr') === 0 ? 'fr' : (first.indexOf('pt') === 0 ? 'pt' : 'en');
-        }
-        if (target !== 'fr') location.replace(target + '/' + 'services.html' + location.search + location.hash);
-      } catch (e) {}
-    })();
-  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pragma4 | Services</title>
+  <title>Audit IA, formation et automatisation des process | Pragma4</title>
   <link rel="icon" type="image/svg+xml" href="assets/logo/pragma4-icon.svg" />
   <meta name="description" content="Audit de maturité IA, méthode et formation, cartographie et skillification des process, stratégie et infrastructure IA : les quatre piliers de Pragma4." />
+  <link rel="canonical" href="https://pragma4.com/services" />
+  <link rel="alternate" hreflang="fr" href="https://pragma4.com/services" />
+  <link rel="alternate" hreflang="en" href="https://pragma4.com/en/services" />
+  <link rel="alternate" hreflang="pt-PT" href="https://pragma4.com/pt/servicos" />
+  <link rel="alternate" hreflang="x-default" href="https://pragma4.com/en/services" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pragma4" />
+  <meta property="og:title" content="Audit IA, formation et automatisation des process | Pragma4" />
+  <meta property="og:description" content="Audit de maturité IA, méthode et formation, cartographie et skillification des process, stratégie et infrastructure IA : les quatre piliers de Pragma4." />
+  <meta property="og:url" content="https://pragma4.com/services" />
+  <meta property="og:image" content="https://pragma4.com/assets/og/pragma4-og-fr.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Pragma4 : conseil en IA appliquée et automatisation des process" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="pt_PT" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -36,17 +33,17 @@
 
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo"><img src="assets/logo/pragma4-logo-horizontal.svg" alt="Pragma4 — Real-world value, through AI" width="220" height="48" /></a>
+      <a href="/" class="logo"><img src="assets/logo/pragma4-logo-horizontal.svg" alt="Pragma4 — Real-world value, through AI" width="220" height="48" /></a>
       <nav class="nav-links" id="nav-links">
-        <a href="index.html#capabilities">Capacités</a>
-        <a href="index.html#method">Méthode</a>
-        <a href="services.html" class="active-page">Services</a>
-        <a href="contact.html" class="btn btn-primary">Nous contacter</a>
-        <a href="contact.html#faq" class="nav-faq" title="Questions fréquentes">FAQ</a>
+        <a href="/#capabilities">Capacités</a>
+        <a href="/#method">Méthode</a>
+        <a href="/services" class="active-page">Services</a>
+        <a href="/contact" class="btn btn-primary">Nous contacter</a>
+        <a href="/contact#faq" class="nav-faq" title="Questions fréquentes">FAQ</a>
         <div class="lang-switch" aria-label="Langue">
-          <a href="services.html" class="active">FR</a>
-          <a href="en/services.html">EN</a>
-          <a href="pt/services.html">PT</a>
+          <a href="/services" class="active">FR</a>
+          <a href="/en/services">EN</a>
+          <a href="/pt/servicos">PT</a>
         </div>
       </nav>
       <button class="nav-toggle" aria-label="Menu">☰</button>
@@ -57,7 +54,7 @@
     <div class="container">
       <span class="label">Services</span>
       <h1>Quatre piliers pour faire de l'IA un actif de votre entreprise.</h1>
-      <p>La méthode d'abord, les process ensuite, la technologie en dernier. Chaque pilier se lance seul ou s'enchaîne aux autres.</p>
+      <p>Conseil en intelligence artificielle, de l'audit à l'automatisation : la méthode d'abord, les process ensuite, la technologie en dernier. Chaque pilier se lance seul ou s'enchaîne aux autres.</p>
       <nav class="svc-jump" aria-label="Services">
         <a class="svc-jump-card" href="#audit"><span class="svc-jump-top"><span class="num">01</span><img src="assets/img/services/audit.svg" alt="" width="36" height="36" /></span><span>Audit de maturité IA</span></a>
         <a class="svc-jump-card" href="#formation"><span class="svc-jump-top"><span class="num">02</span><img src="assets/img/services/formation.svg" alt="" width="36" height="36" /></span><span>Méthode &amp; formation</span></a>
@@ -79,20 +76,20 @@
       <div class="svc-group reveal">
         <span class="label svc-group-label">Problèmes que nous résolvons</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h4>Pas de vision d'ensemble</h4><p>Vous savez que l'IA peut transformer votre activité, mais personne ne sait où en est vraiment l'entreprise, ni par où commencer.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h4>Des initiatives éparpillées</h4><p>Chaque service teste ses outils, souvent hors de tout cadre : budget dispersé, données exposées, aucun résultat consolidé.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h4>Investir sans savoir ce qu'on va gagner</h4><p>Sans priorités ni indicateurs, impossible d'arbitrer, de convaincre la direction ou de mesurer le retour.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h3>Pas de vision d'ensemble</h3><p>Vous savez que l'IA peut transformer votre activité, mais personne ne sait où en est vraiment l'entreprise, ni par où commencer.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h3>Des initiatives éparpillées</h3><p>Chaque service teste ses outils, souvent hors de tout cadre : budget dispersé, données exposées, aucun résultat consolidé.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h3>Investir sans savoir ce qu'on va gagner</h3><p>Sans priorités ni indicateurs, impossible d'arbitrer, de convaincre la direction ou de mesurer le retour.</p></article>
         </div>
       </div>
       <div class="svc-group reveal">
         <span class="label svc-group-label svc-group-label--accent">Nos solutions</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Diagnostic sur quatre axes</h4><p>Compétences des équipes, process, données, infrastructure et sécurité : une note par axe, comparée à ce qui est atteignable chez vous.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Entretiens direction et terrain</h4><p>Nous partons de votre réalité, pas d'un questionnaire générique.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Inventaire des usages IA</h4><p>Quels outils, utilisés par qui, avec quelles données, pour quel coût, y compris les usages non déclarés.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Cas d'usage à fort potentiel</h4><p>Les process les plus chronophages, pénibles ou à fort impact, évalués et classés.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Évaluation des risques</h4><p>Confidentialité, conformité RGPD et AI Act, dépendance fournisseur, sécurité des accès.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Feuille de route chiffrée</h4><p>Quick wins, chantiers prioritaires, budget, gains attendus et indicateurs de suivi, présentés en comité de direction.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Diagnostic sur quatre axes</h3><p>Compétences des équipes, process, données, infrastructure et sécurité : une note par axe, comparée à ce qui est atteignable chez vous.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Entretiens direction et terrain</h3><p>Nous partons de votre réalité, pas d'un questionnaire générique.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Inventaire des usages IA</h3><p>Quels outils, utilisés par qui, avec quelles données, pour quel coût, y compris les usages non déclarés.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Cas d'usage à fort potentiel</h3><p>Les process les plus chronophages, pénibles ou à fort impact, évalués et classés.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Évaluation des risques</h3><p>Confidentialité, conformité RGPD et AI Act, dépendance fournisseur, sécurité des accès.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Feuille de route chiffrée</h3><p>Quick wins, chantiers prioritaires, budget, gains attendus et indicateurs de suivi, présentés en comité de direction.</p></article>
         </div>
       </div>
       <div class="svc-get reveal">
@@ -104,7 +101,7 @@
             <li><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Une feuille de route priorisée et chiffrée</span></li>
           </ul>
         </div>
-        <a href="contact.html?objet=audit" class="btn btn-accent">Parler de ce pilier</a>
+        <a href="/contact?objet=audit" class="btn btn-accent">Parler de ce pilier</a>
       </div>
     </div>
   </section>
@@ -120,20 +117,20 @@
       <div class="svc-group reveal">
         <span class="label svc-group-label">Problèmes que nous résolvons</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h4>Chacun bricole l'IA dans son coin</h4><p>Des usages individuels, sans règles communes : les résultats varient d'une personne à l'autre et rien ne se capitalise.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h4>Des résultats aléatoires</h4><p>Sans comprendre comment fonctionne un modèle ni lui donner le bon contexte, on obtient du générique ou des erreurs. La confiance s'effondre.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h4>L'IA amplifie le désordre</h4><p>Sans organisation de l'information ni rituels, l'IA accélère la dispersion au lieu de la réduire. Les outils sont abandonnés en quelques semaines.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h3>Chacun bricole l'IA dans son coin</h3><p>Des usages individuels, sans règles communes : les résultats varient d'une personne à l'autre et rien ne se capitalise.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h3>Des résultats aléatoires</h3><p>Sans comprendre comment fonctionne un modèle ni lui donner le bon contexte, on obtient du générique ou des erreurs. La confiance s'effondre.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h3>L'IA amplifie le désordre</h3><p>Sans organisation de l'information ni rituels, l'IA accélère la dispersion au lieu de la réduire. Les outils sont abandonnés en quelques semaines.</p></article>
         </div>
       </div>
       <div class="svc-group reveal">
         <span class="label svc-group-label svc-group-label--accent">Nos solutions</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Socle commun de compréhension</h4><p>Comment raisonne un modèle, contexte, hallucinations : comprendre pour maîtriser, de la direction aux équipes.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Règles d'interaction avec l'IA</h4><p>Cadrer avant d'exécuter, une conversation par objectif, ne jamais lui déléguer la clarté de pensée.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Un second cerveau par collaborateur</h4><p>Un espace de connaissance structuré par usage, que l'IA lit en permanence comme contexte.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Des rituels courts et tenables</h4><p>Clôture de session, revue hebdomadaire, nettoyage mensuel : le système reste vivant sans effort.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Le standard d'amplification</h4><p>Règles, bonnes pratiques et bibliothèque de skills partagées, pour faire monter tout le monde au même niveau.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Parcours par profil, sur vos cas réels</h4><p>Direction, managers, équipes : des ateliers sur vos propres dossiers. Une réponse à l'obligation de formation de l'AI Act.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Socle commun de compréhension</h3><p>Comment raisonne un modèle, contexte, hallucinations : comprendre pour maîtriser, de la direction aux équipes.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Règles d'interaction avec l'IA</h3><p>Cadrer avant d'exécuter, une conversation par objectif, ne jamais lui déléguer la clarté de pensée.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Un second cerveau par collaborateur</h3><p>Un espace de connaissance structuré par usage, que l'IA lit en permanence comme contexte.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Des rituels courts et tenables</h3><p>Clôture de session, revue hebdomadaire, nettoyage mensuel : le système reste vivant sans effort.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Le standard d'amplification</h3><p>Règles, bonnes pratiques et bibliothèque de skills partagées, pour faire monter tout le monde au même niveau.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Parcours par profil, sur vos cas réels</h3><p>Direction, managers, équipes : des ateliers sur vos propres dossiers. Une réponse à l'obligation de formation de l'AI Act.</p></article>
         </div>
       </div>
       <div class="svc-get reveal">
@@ -145,7 +142,7 @@
             <li><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Des équipes autonomes</span></li>
           </ul>
         </div>
-        <a href="contact.html?objet=formation" class="btn btn-accent">Parler de ce pilier</a>
+        <a href="/contact?objet=formation" class="btn btn-accent">Parler de ce pilier</a>
       </div>
     </div>
   </section>
@@ -161,20 +158,20 @@
       <div class="svc-group reveal">
         <span class="label svc-group-label">Problèmes que nous résolvons</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h4>Le savoir-faire reste dans les têtes</h4><p>Quelques experts portent les méthodes : impossible de les déléguer ou de les améliorer, et l'entreprise est fragile face aux départs.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h4>Des automatisations isolées</h4><p>On branche l'IA sur des tâches ponctuelles plutôt que sur des flux complets : les gains restent marginaux.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h4>On automatise trop tôt</h4><p>Un process jamais stabilisé finit par casser, coûte en maintenance, et l'équipe décroche.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h3>Le savoir-faire reste dans les têtes</h3><p>Quelques experts portent les méthodes : impossible de les déléguer ou de les améliorer, et l'entreprise est fragile face aux départs.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h3>Des automatisations isolées</h3><p>On branche l'IA sur des tâches ponctuelles plutôt que sur des flux complets : les gains restent marginaux.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h3>On automatise trop tôt</h3><p>Un process jamais stabilisé finit par casser, coûte en maintenance, et l'équipe décroche.</p></article>
         </div>
       </div>
       <div class="svc-group reveal">
         <span class="label svc-group-label svc-group-label--accent">Nos solutions</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Cartographie complète des process</h4><p>Par fréquence (quotidien, hebdo, mensuel, sur déclencheur) et par fonction : acquisition, vente, production, support, administration.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Priorisation par la valeur</h4><p>Chaque process est noté sur le temps consommé, la pénibilité et l'impact business. Ceux qui rapportent le plus passent en premier.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Méthode formalisée avec vos experts</h4><p>Étapes, critères de qualité, exemples, pièges : nous captons ce qui fait la valeur de votre façon de faire.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Skillification</h4><p>Chaque méthode devient un skill : une fiche process unique que l'IA exécute fidèlement. Documentation et exécution ne font plus qu'un.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Automatisation progressive</h4><p>Manuel, supervisé, semi-automatique, puis autonome. Uniquement sur des process fiabilisés, avec un responsable nommé et des alertes.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Diffusion dans toute l'entreprise</h4><p>Une bibliothèque de skills partagée : chaque service profite des process des autres.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Cartographie complète des process</h3><p>Par fréquence (quotidien, hebdo, mensuel, sur déclencheur) et par fonction : acquisition, vente, production, support, administration.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Priorisation par la valeur</h3><p>Chaque process est noté sur le temps consommé, la pénibilité et l'impact business. Ceux qui rapportent le plus passent en premier.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Méthode formalisée avec vos experts</h3><p>Étapes, critères de qualité, exemples, pièges : nous captons ce qui fait la valeur de votre façon de faire.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Skillification</h3><p>Chaque méthode devient un skill : une fiche process unique que l'IA exécute fidèlement. Documentation et exécution ne font plus qu'un.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Automatisation progressive</h3><p>Manuel, supervisé, semi-automatique, puis autonome. Uniquement sur des process fiabilisés, avec un responsable nommé et des alertes.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Diffusion dans toute l'entreprise</h3><p>Une bibliothèque de skills partagée : chaque service profite des process des autres.</p></article>
         </div>
       </div>
       <div class="svc-get reveal">
@@ -186,7 +183,7 @@
             <li><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Des heures libérées, mesurées process par process</span></li>
           </ul>
         </div>
-        <a href="contact.html?objet=automatisation" class="btn btn-accent">Parler de ce pilier</a>
+        <a href="/contact?objet=automatisation" class="btn btn-accent">Parler de ce pilier</a>
       </div>
     </div>
   </section>
@@ -202,20 +199,20 @@
       <div class="svc-group reveal">
         <span class="label svc-group-label">Problèmes que nous résolvons</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h4>Des données dispersées</h4><p>Emails, tableurs, ERP, CRM, documents : sans source unique, l'IA consomme beaucoup, répond lentement et se contredit.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h4>Des données sensibles sans contrôle</h4><p>Qui envoie quoi, à quel fournisseur, conservé combien de temps ? Identifiants et clés circulent hors de tout cadre.</p></article>
-          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h4>Facture imprévisible, fournisseur imposé</h4><p>Des coûts qui dérivent, un modèle unique, des conditions qui changent du jour au lendemain.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">1</span><h3>Des données dispersées</h3><p>Emails, tableurs, ERP, CRM, documents : sans source unique, l'IA consomme beaucoup, répond lentement et se contredit.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">2</span><h3>Des données sensibles sans contrôle</h3><p>Qui envoie quoi, à quel fournisseur, conservé combien de temps ? Identifiants et clés circulent hors de tout cadre.</p></article>
+          <article class="svc-card svc-problem"><span class="svc-mark" aria-hidden="true">3</span><h3>Facture imprévisible, fournisseur imposé</h3><p>Des coûts qui dérivent, un modèle unique, des conditions qui changent du jour au lendemain.</p></article>
         </div>
       </div>
       <div class="svc-group reveal">
         <span class="label svc-group-label svc-group-label--accent">Nos solutions</span>
         <div class="svc-grid svc-grid--3">
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Données unifiées et connectées</h4><p>Une seule source de vérité par donnée, et des connecteurs vers vos outils : ERP, CRM, suites bureautiques, bases documentaires.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Confidentialité dès la conception</h4><p>Non-conservation des données (ZDR) contractuelle, hébergeurs européens ou souverains, modèles locaux pour le plus sensible.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Le bon modèle pour chaque tâche</h4><p>Choisi selon la sensibilité et la complexité, sans dépendance à un fournisseur. Le modèle change, votre système reste.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Maîtrise des coûts</h4><p>Forfaits plutôt que consommation libre, budgets par usage, suivi de la consommation, outils activés seulement quand ils servent.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Sécurité des accès et identifiants</h4><p>Coffre de secrets, accès au strict nécessaire, permissions bornées pour les agents, aucune clé exposée.</p></article>
-          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Pilotage et évolution continue</h4><p>Suivi des usages, de la qualité et des coûts. Votre infrastructure intègre les nouveaux modèles sans tout reconstruire.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Données unifiées et connectées</h3><p>Une seule source de vérité par donnée, et des connecteurs vers vos outils : ERP, CRM, suites bureautiques, bases documentaires.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Confidentialité dès la conception</h3><p>Non-conservation des données (ZDR) contractuelle, hébergeurs européens ou souverains, modèles locaux pour le plus sensible.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Le bon modèle pour chaque tâche</h3><p>Choisi selon la sensibilité et la complexité, sans dépendance à un fournisseur. Le modèle change, votre système reste.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Maîtrise des coûts</h3><p>Forfaits plutôt que consommation libre, budgets par usage, suivi de la consommation, outils activés seulement quand ils servent.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Sécurité des accès et identifiants</h3><p>Coffre de secrets, accès au strict nécessaire, permissions bornées pour les agents, aucune clé exposée.</p></article>
+          <article class="svc-card svc-solution"><span class="svc-mark" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Pilotage et évolution continue</h3><p>Suivi des usages, de la qualité et des coûts. Votre infrastructure intègre les nouveaux modèles sans tout reconstruire.</p></article>
         </div>
       </div>
       <div class="svc-get reveal">
@@ -227,7 +224,7 @@
             <li><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Une architecture indépendante des modèles</span></li>
           </ul>
         </div>
-        <a href="contact.html?objet=strategie-data" class="btn btn-accent">Parler de ce pilier</a>
+        <a href="/contact?objet=strategie-data" class="btn btn-accent">Parler de ce pilier</a>
       </div>
     </div>
   </section>
@@ -238,14 +235,14 @@
       <p class="svc-end-p">Un premier workshop gratuit pour faire le point, puis l'audit pour bâtir votre feuille de route.</p>
       <div class="actions">
         <a href="https://cal.com/pragma4-contact-l9lh33/30min" class="btn btn-primary" data-cal-link="pragma4-contact-l9lh33/30min" target="_blank" rel="noopener">Réserver un échange</a>
-        <a href="contact.html?objet=audit" class="btn btn-ghost">Écrire un message</a>
+        <a href="/contact?objet=audit" class="btn btn-ghost">Écrire un message</a>
       </div>
     </div>
     <!-- NEWSLETTER -->
     <div class="container newsletter">
       <div class="newsletter-text">
         <span class="label">Newsletter</span>
-        <h3>Gardez votre veille IA toujours active.</h3>
+        <p class="newsletter-title">Gardez votre veille IA toujours active.</p>
         <p>Recevez notre newsletter sur l&#x27;actualité de l&#x27;IA et les autres informations importantes, pour garder votre veille toujours à jour.</p>
       </div>
       <form class="newsletter-form" novalidate data-endpoint="https://adamlippes.app.n8n.cloud/webhook/pragma4-newsletter" data-key="" data-ok="Merci ! Votre inscription est confirmée." data-dup="Vous êtes déjà inscrit. Merci !" data-bad="Adresse email non valide." data-err="Erreur d&#x27;envoi. Réessayez dans un instant." data-sending="Inscription en cours...">
@@ -255,17 +252,17 @@
           <button type="submit" class="btn btn-accent">S&#x27;inscrire</button>
         </div>
         <p class="newsletter-status" role="status" aria-live="polite"></p>
-        <p class="newsletter-note">Votre email sert uniquement à vous envoyer la newsletter. Désinscription à tout moment. <a href="confidentialite.html">Politique de confidentialité</a></p>
+        <p class="newsletter-note">Votre email sert uniquement à vous envoyer la newsletter. Désinscription à tout moment. <a href="/confidentialite">Politique de confidentialité</a></p>
       </form>
     </div>
     <div class="container footer-bottom">
-      <div class="footer-brand"><a href="index.html" class="footer-logo"><img src="assets/logo/pragma4-logo-horizontal.svg" alt="Pragma4 — Real-world value, through AI" width="200" height="44" loading="lazy" /></a><span>Conçu pour l'impact.</span></div>
+      <div class="footer-brand"><a href="/" class="footer-logo"><img src="assets/logo/pragma4-logo-horizontal.svg" alt="Pragma4 — Real-world value, through AI" width="200" height="44" loading="lazy" /></a><span>Conçu pour l'impact.</span></div>
       <div class="socials">
         <a class="li-link" href="https://www.linkedin.com/company/pragma4/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="li-ico" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M5.3 9.4h2.9v9.3H5.3zM6.75 4.8a1.68 1.68 0 1 1 0 3.36 1.68 1.68 0 0 1 0-3.36zM10 9.4h2.8v1.27h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.5 1.94 3.5 4.47v5.08h-2.9v-4.5c0-1.07-.02-2.46-1.5-2.46-1.5 0-1.73 1.17-1.73 2.38v4.58H10z"/></svg><span>LINKEDIN</span></a>
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© 2026 Pragma4. Tous droits réservés. · <a class="footer-legal" href="confidentialite.html">Politique de confidentialité</a></span>
+      <span>© 2026 Pragma4. Tous droits réservés. · <a class="footer-legal" href="/confidentialite">Politique de confidentialité</a></span>
     </div>
     <div class="wordmark" aria-hidden="true"><img src="assets/logo/pragma4-wordmark.svg" alt="" /></div>
   </footer>

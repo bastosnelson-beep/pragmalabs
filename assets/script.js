@@ -7,6 +7,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Suggestion de langue (remplace l'ancienne redirection automatique, déconseillée pour le SEO) :
+  // si la langue du navigateur (ou le choix mémorisé) diffère de celle de la page et qu'une version
+  // traduite existe (balises hreflang), on propose un lien discret, sans jamais rediriger.
+  (function () {
+    try {
+      var pageLang = (document.documentElement.lang || 'fr').slice(0, 2);
+      var saved = null, dismissed = null;
+      try { saved = localStorage.getItem('pl-lang'); dismissed = sessionStorage.getItem('pl-lang-banner'); } catch (e) {}
+      if (saved === pageLang || dismissed) return;
+      var want = saved;
+      if (!want) {
+        var langs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+        var first = String(langs[0] || '').toLowerCase();
+        want = first.indexOf('fr') === 0 ? 'fr' : (first.indexOf('pt') === 0 ? 'pt' : 'en');
+      }
+      if (want === pageLang) return;
+      var alt = document.querySelector('link[rel="alternate"][hreflang^="' + want + '"]');
+      if (!alt) return;
+      var txt = {
+        fr: ['Cette page existe en français.', 'Voir en français', 'Fermer'],
+        en: ['This page is available in English.', 'View in English', 'Close'],
+        pt: ['Esta página está disponível em português.', 'Ver em português', 'Fechar']
+      }[want];
+      var bar = document.createElement('div');
+      bar.className = 'lang-banner';
+      bar.setAttribute('role', 'region');
+      bar.setAttribute('aria-label', txt[1]);
+      bar.lang = want;
+      var span = document.createElement('span');
+      span.textContent = txt[0];
+      var go = document.createElement('a');
+      go.className = 'lang-banner-go';
+      go.href = new URL(alt.getAttribute('href')).pathname + location.search + location.hash;
+      go.hreflang = want;
+      go.textContent = txt[1];
+      go.addEventListener('click', function () { try { localStorage.setItem('pl-lang', want); } catch (e) {} });
+      var close = document.createElement('button');
+      close.type = 'button';
+      close.setAttribute('aria-label', txt[2]);
+      close.textContent = '×';
+      close.addEventListener('click', function () {
+        bar.remove();
+        try { sessionStorage.setItem('pl-lang-banner', '1'); } catch (e) {}
+      });
+      bar.appendChild(span); bar.appendChild(go); bar.appendChild(close);
+      document.body.appendChild(bar);
+    } catch (e) {}
+  })();
+
   // Page Services ouverte depuis un lien de l'accueil (?from=accueil) :
   // bouton flottant pour revenir exactement là où le visiteur lisait.
   (function () {
@@ -16,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var label = { fr: "Retour à l'accueil, reprendre la lecture", en: 'Back to the homepage, continue reading', pt: 'Voltar à página inicial e continuar a leitura' }[lang] || 'Retour';
     var a = document.createElement('a');
     a.className = 'back-to-home';
-    a.href = 'index.html#capabilities';
+    a.href = './#capabilities';
     a.innerHTML = '<span aria-hidden="true">←</span> ' + label;
     a.addEventListener('click', function (e) {
       // Si le visiteur vient bien de l'accueil, on revient dans l'historique : position de lecture conservée.

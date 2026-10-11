@@ -62,3 +62,12 @@ puis http://localhost:8000
 
 - `/careers` : page recrutement avec sections par département
 - Page du Prix (Arcus-like) : expérience dédiée
+
+## SEO (oct. 2026)
+
+- URL canoniques sans extension : `/`, `/services`, `/contact`, `/en/…`, `/pt/servicos`, `/pt/contacto` (GitHub Pages sert `x.html` pour `/x`). Les liens internes utilisent ces URL ; pour prévisualiser en local, utiliser un serveur qui résout `/x` vers `x.html`.
+- `pt/contact.html` et `pt/services.html` sont des redirections vers les nouvelles adresses portugaises (à conserver pour les anciens liens).
+- `robots.txt` et `sitemap.xml` (avec hreflang fr / en / pt-PT) à la racine : penser à mettre à jour `sitemap.xml` à chaque nouvelle page.
+- Images de partage LinkedIn (Open Graph) : `assets/og/pragma4-og-{fr,en,pt}.jpg` (1200×630).
+- Plus de redirection automatique de langue : un bandeau propose la version dans la langue du navigateur (`assets/script.js`).
+- Toute modification doit être répercutée sur les versions FR, EN et PT (titres, canonical, hreflang, og:*).

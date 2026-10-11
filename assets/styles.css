@@ -293,7 +293,7 @@ section { padding: 110px 0; }
 }
 .method-card:hover { border-color: var(--text); }
 .method-card .num { font-size: 14px; font-weight: 600; color: var(--muted); }
-.method-card h4 { font-size: 20px; font-weight: 600; }
+.method-card h3, .method-card h4 { font-size: 20px; font-weight: 600; }
 
 /* Blocs détaillés noyau / transformation / transmission */
 .detail-block { border-top: 1px solid var(--border); padding-top: 72px; margin-bottom: 72px; }
@@ -348,7 +348,7 @@ section { padding: 110px 0; }
 .tl-item:nth-child(3) { --dot: 1cm; }
 .tl-item:nth-child(4) { --dot: 1.5cm; }
 .tl-item .label { display: block; color: var(--accent-ink); }
-.tl-item h4 { font-size: 18px; font-weight: 600; margin-top: 10px; }
+.tl-item h3, .tl-item h4 { font-size: 18px; font-weight: 600; margin-top: 10px; }
 .tl-item p { color: var(--muted); font-size: 14px; margin-top: 6px; }
 
 /* ---------- News ---------- */
@@ -588,7 +588,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
   position: relative; padding: 26px 24px 24px;
   border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
 }
-.svc-card h4 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; margin: 14px 0 8px; }
+.svc-card h3, .svc-card h4 { font-size: 17px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; margin: 14px 0 8px; }
 .svc-card p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
 .svc-mark {
   display: inline-flex; align-items: center; justify-content: center;
@@ -647,7 +647,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
   width: calc(100% - 48px); max-width: calc(var(--container) - 48px); margin: 0 auto 56px; padding: 36px 40px;
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
 }
-.newsletter h3 { font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin: 10px 0 10px; }
+.newsletter h3, .newsletter .newsletter-title { font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; margin: 10px 0 10px; }
 .newsletter-text p { color: var(--muted); font-size: 15px; line-height: 1.6; }
 .newsletter-row { display: flex; gap: 10px; }
 .newsletter-row input {
@@ -727,3 +727,18 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
   .pillars, .stats, .timeline, .news-grid, .contact-form .row { grid-template-columns: 1fr; }
   section { padding: 72px 0; }
 }
+
+/* ---------- SEO : titre accessible non affiché ---------- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* ---------- Bandeau de suggestion de langue (remplace la redirection automatique) ---------- */
+.lang-banner { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 1000;
+  display: flex; align-items: center; gap: 14px; max-width: calc(100% - 32px);
+  background: var(--ink); color: #FFFFFF; border-radius: 999px; padding: 10px 10px 10px 20px;
+  box-shadow: 0 10px 30px rgba(20, 22, 28, .25); font-size: 14px; line-height: 1.3; }
+.lang-banner a.lang-banner-go { background: var(--accent); color: var(--accent-contrast); font-weight: 600;
+  border-radius: 999px; padding: 8px 16px; white-space: nowrap; }
+.lang-banner button { background: transparent; border: 0; color: #FFFFFF; opacity: .7; cursor: pointer;
+  font-size: 18px; line-height: 1; width: 32px; height: 32px; border-radius: 50%; flex: none; }
+.lang-banner button:hover { opacity: 1; background: rgba(255,255,255,.12); }
+@media (max-width: 560px) { .lang-banner { border-radius: 16px; bottom: 12px; font-size: 13px; padding: 10px 8px 10px 14px; } }
