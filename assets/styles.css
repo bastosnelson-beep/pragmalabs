@@ -497,6 +497,16 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
   background: #FFFFFF; color: var(--text); font-family: var(--font); cursor: pointer;
 }
 .form-status { font-size: 14px; color: var(--muted); min-height: 20px; }
+.form-status { text-align: center; white-space: pre-line; }
+.form-status.is-success {
+  align-self: stretch;
+  margin-top: 8px; padding: 20px 24px;
+  font-size: 16px; font-weight: 500; line-height: 1.6;
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+}
 
 /* ---------- FAQ (page contact) ---------- */
 #faq { scroll-margin-top: calc(var(--nav-height) + 24px); }

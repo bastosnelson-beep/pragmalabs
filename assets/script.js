@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const fileErr = checkFiles();
+      status.classList.remove('is-success');
       if (fileErr) { status.textContent = fileErr; return; }
       status.textContent = form.dataset.sending || 'Envoi en cours...';
       const data = new FormData(form);
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (!res.ok) throw new Error('HTTP ' + res.status);
         status.textContent = form.dataset.success || 'Message envoyé.';
+        status.classList.add('is-success');
         form.reset();
         if (fileInput) fileInput.setCustomValidity('');
       } catch (err) {
