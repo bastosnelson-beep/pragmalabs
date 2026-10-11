@@ -32,6 +32,41 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(function () { a.classList.add('is-visible'); });
   })();
 
+  // Newsletter (pied de page) -> base Supabase (table newsletter_subscribers, insertion seule)
+  document.querySelectorAll('.newsletter-form').forEach(function (nf) {
+    var input = nf.querySelector('input[name="email"]');
+    var status = nf.querySelector('.newsletter-status');
+    var btn = nf.querySelector('button[type="submit"]');
+    var RE = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/;
+    var say = function (msg, kind) {
+      status.textContent = msg || '';
+      status.classList.toggle('is-success', kind === 'ok');
+      status.classList.toggle('is-error', kind === 'err');
+    };
+    input.addEventListener('input', function () { input.classList.remove('is-invalid'); });
+    nf.addEventListener('submit', async function (ev) {
+      ev.preventDefault();
+      var email = input.value.trim().toLowerCase();
+      if (!RE.test(email) || email.indexOf('..') !== -1 || email.length > 254) {
+        input.classList.add('is-invalid'); say(nf.dataset.bad, 'err'); input.focus(); return;
+      }
+      if (nf.querySelector('input[name="company_site"]').value) { say(nf.dataset.ok, 'ok'); nf.reset(); return; } // robot
+      if (!nf.dataset.endpoint || !nf.dataset.key) { say(nf.dataset.err, 'err'); return; }
+      btn.disabled = true; say(nf.dataset.sending, '');
+      try {
+        var res = await fetch(nf.dataset.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'apikey': nf.dataset.key, 'Authorization': 'Bearer ' + nf.dataset.key, 'Prefer': 'return=minimal' },
+          body: JSON.stringify({ email: email, lang: (document.documentElement.lang || 'fr').slice(0, 2), source_page: location.pathname, consent_text: nf.querySelector('.newsletter-note').textContent.trim() })
+        });
+        if (res.status === 409) { say(nf.dataset.dup, 'ok'); nf.reset(); }
+        else if (!res.ok) throw new Error('HTTP ' + res.status);
+        else { say(nf.dataset.ok, 'ok'); nf.reset(); }
+      } catch (err) { say(nf.dataset.err, 'err'); }
+      btn.disabled = false;
+    });
+  });
+
   // Menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
