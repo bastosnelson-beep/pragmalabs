@@ -45,14 +45,14 @@
   </section>
 
   <!-- Form wired to the n8n webhook (workflow Pragma4 - Formulaire Contact) -->
-  <form class="contact-form"
+  <form class="contact-form" novalidate
         data-sending="Sending..."
         data-success="Thank you for getting in touch. Your message has been sent successfully and our team will get back to you very shortly. A copy has also been sent to your email address.&#10;The Pragma4 team"
         data-error="Send failed. Try again or email contact@pragma4.com.">
     <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
     <div class="row">
       <select name="request_type" required aria-label="Subject of your request">
-        <option value="" disabled selected>Subject of your request</option>
+        <option value="" disabled selected>Subject of your request *</option>
         <option value="strategie-ia">Enterprise AI strategy</option>
         <option value="strategie-data">Data strategy for AI</option>
         <option value="automatisation">Automation</option>
@@ -61,23 +61,32 @@
         <option value="information">Information request</option>
         <option value="candidature">Apply</option>
       </select>
-      <input type="text" name="country" placeholder="Country" autocomplete="country-name" required />
+      <input type="text" name="country" placeholder="Country" autocomplete="country-name" />
     </div>
     <div class="row">
-      <input type="text" name="name" placeholder="Name" required />
-      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="name" placeholder="Name *" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Email *" required autocomplete="email" />
     </div>
     <div class="row">
-      <input type="tel" name="phone" placeholder="Phone (optional)" />
+      <select name="phone_country" required aria-label="Country code" autocomplete="tel-country-code">
+        <option value="" disabled selected>Country code *</option>
+      </select>
+      <input type="tel" name="phone_number" placeholder="Phone (no spaces) *" aria-label="Phone number" inputmode="numeric" autocomplete="tel-national" required />
+    </div>
+    <div class="row">
       <input type="text" name="company" placeholder="Company" />
+      <input type="text" name="site_url" placeholder="Website (optional)" aria-label="Website" inputmode="url" autocomplete="url" />
     </div>
-    <textarea name="message" rows="6" placeholder="Message" required></textarea>
+    <textarea name="message" rows="6" placeholder="Message"></textarea>
     <label class="file-field">
       <span class="file-label">Attachments (optional): 2 files max, 5 MB each · PDF, Word, JPG, PNG</span>
       <input type="file" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
              data-too-many="You can attach up to 2 files." data-too-big="Each file must be under 5 MB: " data-bad-type="Format not accepted (PDF, Word, JPG or PNG): " />
     </label>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-actions">
+      <span class="form-required-note">* Required fields</span>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
   </form>
 
   <!-- FAQ -->
@@ -139,6 +148,7 @@
     <div class="wordmark" aria-hidden="true"><img src="../assets/logo/pragma4-wordmark.svg" alt="" /></div>
   </footer>
 
+  <script src="../assets/vendor/libphonenumber-max.js" defer></script>
   <script src="../assets/script.js"></script>
 </body>
 </html>

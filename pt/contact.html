@@ -45,14 +45,14 @@
   </section>
 
   <!-- Formulário ligado ao webhook n8n (workflow Pragma4 - Formulaire Contact) -->
-  <form class="contact-form"
+  <form class="contact-form" novalidate
         data-sending="A enviar..."
         data-success="Obrigado pelo seu contacto. A sua mensagem foi enviada com sucesso e a nossa equipa entrará em contacto consigo muito em breve. Foi-lhe também enviada uma cópia por email.&#10;A equipa Pragma4"
         data-error="Falha no envio. Tente novamente ou escreva para contact@pragma4.com.">
     <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
     <div class="row">
       <select name="request_type" required aria-label="Assunto do seu pedido">
-        <option value="" disabled selected>Assunto do seu pedido</option>
+        <option value="" disabled selected>Assunto do seu pedido *</option>
         <option value="strategie-ia">Estratégia empresarial de IA</option>
         <option value="strategie-data">Estratégia de dados para IA</option>
         <option value="automatisation">Automatização</option>
@@ -61,23 +61,32 @@
         <option value="information">Pedido de informações</option>
         <option value="candidature">Candidatar-se</option>
       </select>
-      <input type="text" name="country" placeholder="País" autocomplete="country-name" required />
+      <input type="text" name="country" placeholder="País" autocomplete="country-name" />
     </div>
     <div class="row">
-      <input type="text" name="name" placeholder="Nome" required />
-      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="name" placeholder="Nome *" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Email *" required autocomplete="email" />
     </div>
     <div class="row">
-      <input type="tel" name="phone" placeholder="Telefone (opcional)" />
+      <select name="phone_country" required aria-label="Indicativo do país" autocomplete="tel-country-code">
+        <option value="" disabled selected>Indicativo do país *</option>
+      </select>
+      <input type="tel" name="phone_number" placeholder="Telefone (sem espaços) *" aria-label="Número de telefone" inputmode="numeric" autocomplete="tel-national" required />
+    </div>
+    <div class="row">
       <input type="text" name="company" placeholder="Empresa" />
+      <input type="text" name="site_url" placeholder="Website (opcional)" aria-label="Website" inputmode="url" autocomplete="url" />
     </div>
-    <textarea name="message" rows="6" placeholder="Mensagem" required></textarea>
+    <textarea name="message" rows="6" placeholder="Mensagem"></textarea>
     <label class="file-field">
       <span class="file-label">Anexos (opcional): 2 ficheiros no máximo, 5 MB cada · PDF, Word, JPG, PNG</span>
       <input type="file" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
              data-too-many="Pode anexar no máximo 2 ficheiros." data-too-big="Cada ficheiro deve ter menos de 5 MB: " data-bad-type="Formato não aceite (PDF, Word, JPG ou PNG): " />
     </label>
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <div class="form-actions">
+      <span class="form-required-note">* Campos obrigatórios</span>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
   </form>
 
   <!-- FAQ -->
@@ -139,6 +148,7 @@
     <div class="wordmark" aria-hidden="true"><img src="../assets/logo/pragma4-wordmark.svg" alt="" /></div>
   </footer>
 
+  <script src="../assets/vendor/libphonenumber-max.js" defer></script>
   <script src="../assets/script.js"></script>
 </body>
 </html>
