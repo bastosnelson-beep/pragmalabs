@@ -67,6 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Statistiques de visite anonymes : vues par page et clics sur les CTA.
+  // Aucun cookie, aucun identifiant de visiteur ; la localisation (pays, ville) est déduite côté serveur
+  // puis l'adresse IP est jetée. Inactif tant que TRACK_URL est vide.
+  (function () {
+    var TRACK_URL = '';
+    if (!TRACK_URL || /bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname)) return;
+    var lang = (document.documentElement.lang || 'fr').slice(0, 2);
+    var send = function (payload) {
+      payload.page = location.pathname;
+      payload.lang = lang;
+      try {
+        var body = JSON.stringify(payload);
+        if (navigator.sendBeacon) navigator.sendBeacon(TRACK_URL, new Blob([body], { type: 'text/plain' }));
+        else fetch(TRACK_URL, { method: 'POST', body: body, keepalive: true, headers: { 'Content-Type': 'text/plain' } });
+      } catch (e) {}
+    };
+    var ref = '';
+    try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    send({ type: 'pageview', referrer: ref === location.hostname ? '' : ref, screen: window.innerWidth < 768 ? 'mobile' : (window.innerWidth < 1200 ? 'tablet' : 'desktop') });
+    document.addEventListener('click', function (ev) {
+      var el = ev.target.closest('a.btn, button.btn, .pillar-link, .svc-jump-card, .nav-faq, .back-to-home, .li-link, .nav-links a');
+      if (!el) return;
+      var label = (el.getAttribute('data-cta') || el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      send({ type: 'cta', cta: label, target: (el.getAttribute('href') || (el.form ? 'form:' + (el.form.className || '') : '')).slice(0, 200) });
+    }, true);
+  })();
+
   // Menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
