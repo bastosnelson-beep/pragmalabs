@@ -90,6 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const countryIn = $('input[name="country"]');
     const LPN = window.libphonenumber || null;
 
+    // Objet pré-sélectionné depuis la page Services (contact.html?objet=audit)
+    try {
+      const preset = String(new URLSearchParams(location.search).get('objet') || '').replace(/[^a-z0-9-]/gi, '');
+      if (preset && typeSel && typeSel.querySelector('option[value="' + preset + '"]')) typeSel.value = preset;
+    } catch (e) {}
+
     // Noms de pays dans la langue de la page
     let regionNames = null;
     try { regionNames = new Intl.DisplayNames([lang], { type: 'region' }); } catch (e) {}
