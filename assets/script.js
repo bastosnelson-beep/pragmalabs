@@ -95,6 +95,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }, true);
   })();
 
+  // Cal.com : prise de rendez-vous en fenêtre sur le site.
+  // Le script Cal.com n'est chargé qu'au premier clic (aucun appel tiers avant).
+  // Sans JavaScript ou en cas d'échec, le lien ouvre la page Cal.com dans un nouvel onglet.
+  (function () {
+    var links = document.querySelectorAll('[data-cal-link]');
+    if (!links.length) return;
+    var state = 'idle';
+    var pending = null;
+    var lang = (document.documentElement.lang || 'fr').slice(0, 2);
+    var open = function (link) {
+      try {
+        window.Cal('modal', { calLink: link, config: { layout: 'month_view', theme: 'light' } });
+      } catch (e) { window.open('https://cal.com/' + link, '_blank', 'noopener'); }
+    };
+    var load = function (cb) {
+      if (state === 'ready') return cb(true);
+      pending = cb;
+      if (state === 'loading') return;
+      state = 'loading';
+      (function (C, A, L) {
+        var p = function (a, ar) { a.q.push(ar); };
+        var d = C.document;
+        C.Cal = C.Cal || function () {
+          var cal = C.Cal; var ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {}; cal.q = cal.q || [];
+            var s = d.createElement('script'); s.src = A; s.async = true;
+            s.onload = function () { state = 'ready'; if (pending) { pending(true); pending = null; } };
+            s.onerror = function () { state = 'error'; if (pending) { pending(false); pending = null; } };
+            d.head.appendChild(s); cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            var api = function () { p(api, arguments); };
+            var namespace = ar[1]; api.q = api.q || [];
+            if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); }
+            else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+      })(window, 'https://app.cal.com/embed/embed.js', 'init');
+      window.Cal('init', { origin: 'https://cal.com' });
+      window.Cal('ui', { theme: 'light', cssVarsPerTheme: { light: { 'cal-brand': '#14161C' } }, hideEventTypeDetails: false, layout: 'month_view' });
+      setTimeout(function () { if (state === 'loading') { state = 'error'; if (pending) { pending(false); pending = null; } } }, 8000);
+    };
+    links.forEach(function (a) {
+      a.addEventListener('click', function (ev) {
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return; // ouverture volontaire dans un nouvel onglet
+        ev.preventDefault();
+        var link = a.getAttribute('data-cal-link');
+        load(function (ok) { ok ? open(link) : window.open(a.href, '_blank', 'noopener'); });
+      });
+    });
+  })();
+
   // Menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
