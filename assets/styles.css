@@ -111,7 +111,7 @@ ul { list-style: none; }
 .nav-toggle { display: none; background: none; border: none; font-size: 22px; cursor: pointer; }
 
 /* ---------- Hero ---------- */
-.hero { padding: 120px 0 80px; text-align: center; }
+.hero { padding: 112px 0 64px; text-align: center; }
 .hero h1 {
   font-size: clamp(40px, 6.5vw, 76px);
   font-weight: 700;
@@ -211,8 +211,11 @@ ul { list-style: none; }
 }
 
 /* ---------- Sections génériques ---------- */
-section { padding: 110px 0; }
-.section-head { max-width: 760px; margin-bottom: 56px; }
+section { padding: 56px 0; }
+.overview { padding-bottom: 20px; }
+#capabilities { padding-top: 20px; }
+.method-links { margin-bottom: 48px; }
+.section-head { max-width: 760px; margin-bottom: 40px; }
 .section-head h2, .section-head h3 {
   font-size: clamp(28px, 3.6vw, 42px);
   font-weight: 700;
@@ -279,7 +282,6 @@ section { padding: 110px 0; }
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 64px;
 }
 .method-card {
   display: flex;
@@ -296,7 +298,8 @@ section { padding: 110px 0; }
 .method-card h3, .method-card h4 { font-size: 20px; font-weight: 600; }
 
 /* Blocs détaillés noyau / transformation / transmission */
-.detail-block { border-top: 1px solid var(--border); padding-top: 72px; margin-bottom: 72px; }
+.detail-block { border-top: 1px solid var(--border); padding-top: 48px; margin-bottom: 48px; }
+.detail-block:last-child { margin-bottom: 0; }
 .detail-head { display: flex; align-items: baseline; gap: 20px; margin-bottom: 12px; }
 .detail-head .num { font-size: 13px; letter-spacing: .12em; font-weight: 600; color: var(--muted); }
 .detail-head h3 { font-size: clamp(26px, 3vw, 36px); font-weight: 600; letter-spacing: -.02em; }
@@ -370,7 +373,7 @@ section { padding: 110px 0; }
 .news-card h4 { font-size: 16px; font-weight: 600; margin: 8px 0 12px; }
 
 /* ---------- Footer ---------- */
-footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidden; }
+footer { border-top: 1px solid var(--border); padding: 64px 0 0; overflow: hidden; }
 .footer-cta { text-align: center; margin-bottom: 72px; }
 .footer-cta h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -.02em; margin-bottom: 24px; }
 .footer-cta .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
@@ -725,7 +728,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 }
 @media (max-width: 560px) {
   .pillars, .stats, .timeline, .news-grid, .contact-form .row { grid-template-columns: 1fr; }
-  section { padding: 72px 0; }
+  section { padding: 40px 0; }
 }
 
 /* ---------- SEO : titre accessible non affiché ---------- */
