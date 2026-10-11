@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(function () { a.classList.add('is-visible'); });
   })();
 
-  // Newsletter (pied de page) -> base Supabase (table newsletter_subscribers, insertion seule)
+  // Newsletter (pied de page) -> workflow n8n « Pragma4 - Newsletter » -> Supabase (table newsletter_subscribers)
   document.querySelectorAll('.newsletter-form').forEach(function (nf) {
     var input = nf.querySelector('input[name="email"]');
     var status = nf.querySelector('.newsletter-status');
@@ -51,17 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
         input.classList.add('is-invalid'); say(nf.dataset.bad, 'err'); input.focus(); return;
       }
       if (nf.querySelector('input[name="company_site"]').value) { say(nf.dataset.ok, 'ok'); nf.reset(); return; } // robot
-      if (!nf.dataset.endpoint || !nf.dataset.key) { say(nf.dataset.err, 'err'); return; }
+      if (!nf.dataset.endpoint) { say(nf.dataset.err, 'err'); return; }
       btn.disabled = true; say(nf.dataset.sending, '');
       try {
+        // Envoi en text/plain (requête « simple », sans pré-vérification CORS) vers le workflow n8n
         var res = await fetch(nf.dataset.endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'apikey': nf.dataset.key, 'Authorization': 'Bearer ' + nf.dataset.key, 'Prefer': 'return=minimal' },
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
           body: JSON.stringify({ email: email, lang: (document.documentElement.lang || 'fr').slice(0, 2), source_page: location.pathname, consent_text: nf.querySelector('.newsletter-note').textContent.trim() })
         });
-        if (res.status === 409) { say(nf.dataset.dup, 'ok'); nf.reset(); }
-        else if (!res.ok) throw new Error('HTTP ' + res.status);
-        else { say(nf.dataset.ok, 'ok'); nf.reset(); }
+        var data = {};
+        try { data = await res.json(); } catch (e) {}
+        if (data.status === 'ok') { say(nf.dataset.ok, 'ok'); nf.reset(); }
+        else if (data.status === 'duplicate') { say(nf.dataset.dup, 'ok'); nf.reset(); }
+        else if (data.status === 'invalid') { input.classList.add('is-invalid'); say(nf.dataset.bad, 'err'); }
+        else throw new Error('HTTP ' + res.status);
       } catch (err) { say(nf.dataset.err, 'err'); }
       btn.disabled = false;
     });
