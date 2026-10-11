@@ -7,6 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Page Services ouverte depuis un lien de l'accueil (?from=accueil) :
+  // bouton flottant pour revenir exactement là où le visiteur lisait.
+  (function () {
+    var params = new URLSearchParams(location.search);
+    if (params.get('from') !== 'accueil' || !document.querySelector('.svc-hero')) return;
+    var lang = (document.documentElement.lang || 'fr').slice(0, 2);
+    var label = { fr: "Retour à l'accueil, reprendre la lecture", en: 'Back to the homepage, continue reading', pt: 'Voltar à página inicial e continuar a leitura' }[lang] || 'Retour';
+    var a = document.createElement('a');
+    a.className = 'back-to-home';
+    a.href = 'index.html#capabilities';
+    a.innerHTML = '<span aria-hidden="true">←</span> ' + label;
+    a.addEventListener('click', function (e) {
+      // Si le visiteur vient bien de l'accueil, on revient dans l'historique : position de lecture conservée.
+      try {
+        var ref = document.referrer ? new URL(document.referrer) : null;
+        if (ref && ref.origin === location.origin && /(^|\/)(index\.html)?$/.test(ref.pathname) && history.length > 1) {
+          e.preventDefault();
+          history.back();
+        }
+      } catch (err) {}
+    });
+    document.body.appendChild(a);
+    requestAnimationFrame(function () { a.classList.add('is-visible'); });
+  })();
+
   // Menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
