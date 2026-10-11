@@ -702,6 +702,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 .unsub-intro { color: var(--muted); font-size: 17px; margin: 16px 0 28px; }
 .unsub-btn { border: none; cursor: pointer; font-family: var(--font); font-size: 15px; }
 .unsub-btn:disabled { opacity: .6; cursor: wait; }
+.unsub-btn[hidden] { display: none; }
 .unsub-status { max-width: 560px; margin: 24px auto 0; font-size: 15.5px; line-height: 1.6; }
 .unsub-status.is-success { color: var(--accent-ink); font-weight: 500; }
 .unsub-status.is-error { color: #A23A2C; }
