@@ -154,6 +154,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
+  // Page de désinscription newsletter (lien reçu par email : ?t=<jeton>)
+  (function () {
+    var box = document.querySelector('.unsub-box');
+    if (!box) return;
+    var btn = box.querySelector('.unsub-btn');
+    var status = box.querySelector('.unsub-status');
+    var token = new URLSearchParams(location.search).get('t') || '';
+    var UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+    var say = function (msg, kind) { status.textContent = msg; status.className = 'unsub-status' + (kind ? ' is-' + kind : ''); };
+    if (!UUID.test(token)) { btn.hidden = true; say(box.dataset.bad, 'error'); return; }
+    // Désinscription uniquement au clic : les antivirus de messagerie qui « visitent » les liens ne désinscrivent personne.
+    btn.addEventListener('click', async function () {
+      btn.disabled = true; say(box.dataset.sending, '');
+      try {
+        var res = await fetch(box.dataset.endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify({ token: token }) });
+        var data = {}; try { data = await res.json(); } catch (e) {}
+        if (data.status === 'ok') { btn.hidden = true; say(box.dataset.ok, 'success'); }
+        else if (data.status === 'invalid') { btn.hidden = true; say(box.dataset.bad, 'error'); }
+        else throw new Error('HTTP ' + res.status);
+      } catch (e) { btn.disabled = false; say(box.dataset.err, 'error'); }
+    });
+  })();
+
   // Menu mobile
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');

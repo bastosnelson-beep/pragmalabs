@@ -697,6 +697,18 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 /* Newsletter masquée tant que la base n'est pas branchée */
 .newsletter:has(form[data-endpoint=""]) { display: none; }
 
+/* ---------- Page de désinscription ---------- */
+.unsub-box { text-align: center; padding: 40px 0 60px; }
+.unsub-intro { color: var(--muted); font-size: 17px; margin: 16px 0 28px; }
+.unsub-btn { border: none; cursor: pointer; font-family: var(--font); font-size: 15px; }
+.unsub-btn:disabled { opacity: .6; cursor: wait; }
+.unsub-status { max-width: 560px; margin: 24px auto 0; font-size: 15.5px; line-height: 1.6; }
+.unsub-status.is-success { color: var(--accent-ink); font-weight: 500; }
+.unsub-status.is-error { color: #A23A2C; }
+.unsub-back { margin-top: 32px; font-size: 14px; }
+.unsub-back a { color: var(--muted); }
+.unsub-back a:hover { color: var(--text); }
+
 /* ---------- Animations reveal ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
