@@ -499,6 +499,7 @@ footer { border-top: 1px solid var(--border); padding: 72px 0 0; overflow: hidde
 .form-status { font-size: 14px; color: var(--muted); min-height: 20px; }
 
 /* ---------- FAQ (page contact) ---------- */
+#faq { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .faq { padding: 0 0 120px; }
 .faq .section-head { max-width: 760px; margin: 0 auto 40px; text-align: center; }
 .faq .section-head p { color: var(--muted); margin-top: 14px; }
