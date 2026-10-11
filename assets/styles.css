@@ -246,6 +246,10 @@ section { padding: 110px 0; }
   flex-direction: column;
 }
 .pillar-icon { width: 84px; height: 84px; padding: 14px; background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 22px; }
+.pillar-link { display: inline-flex; align-items: baseline; gap: 8px; transition: color .2s ease; }
+.pillar-link::after { content: "→"; font-weight: 500; color: var(--accent-ink); transition: transform .2s ease; }
+.pillar-link:hover { color: var(--accent-ink); }
+.pillar-link:hover::after { transform: translateX(3px); }
 .pillar .fig { font-size: 12px; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
 .pillar h3 { font-size: 22px; font-weight: 600; margin: 12px 0 10px; }
 .pillar p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
