@@ -71,3 +71,9 @@ puis http://localhost:8000
 - Images de partage LinkedIn (Open Graph) : `assets/og/pragma4-og-{fr,en,pt}.jpg` (1200×630).
 - Plus de redirection automatique de langue : un bandeau propose la version dans la langue du navigateur (`assets/script.js`).
 - Toute modification doit être répercutée sur les versions FR, EN et PT (titres, canonical, hreflang, og:*).
+
+## Newsletter : double opt-in (oct. 2026)
+
+- Formulaire du pied de page → webhook n8n `pragma4-newsletter` (workflow « Pragma4 - Newsletter inscription (double opt-in) ») : filtre les robots, enregistre une inscription **non confirmée** dans Supabase (`newsletter_subscribers`) et envoie un email avec le lien de confirmation (au plus 1 par adresse et par 24h).
+- Pages de confirmation : `/confirmation`, `/en/confirm`, `/pt/confirmacao` (lien `?t=<jeton>`). La confirmation se fait au clic sur le bouton, jamais à la simple ouverture du lien (les antivirus de messagerie qui visitent les liens ne confirment personne) → webhook `pragma4-newsletter-confirm` qui date `confirmed_at` et envoie l'email de bienvenue.
+- Seules les adresses avec `confirmed_at` renseigné et `unsubscribed_at` vide reçoivent la newsletter. Les inscriptions non confirmées sont supprimées après 7 jours (workflow « Pragma4 - Newsletter nettoyage quotidien »).

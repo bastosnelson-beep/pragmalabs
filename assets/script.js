@@ -203,7 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // Page de désinscription newsletter (lien reçu par email : ?t=<jeton>)
+  // Pages « lien reçu par email » (?t=<jeton>) : désinscription et confirmation d'inscription (double opt-in).
+  // Même logique, seuls l'endpoint et les textes (attributs data-*) changent d'une page à l'autre.
   (function () {
     var box = document.querySelector('.unsub-box');
     if (!box) return;
@@ -213,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     var say = function (msg, kind) { status.textContent = msg; status.className = 'unsub-status' + (kind ? ' is-' + kind : ''); };
     if (!UUID.test(token)) { btn.hidden = true; say(box.dataset.bad, 'error'); return; }
-    // Désinscription uniquement au clic : les antivirus de messagerie qui « visitent » les liens ne désinscrivent personne.
+    // Action uniquement au clic : les antivirus de messagerie qui « visitent » les liens ne confirment ni ne désinscrivent personne.
     btn.addEventListener('click', async function () {
       btn.disabled = true; say(box.dataset.sending, '');
       try {

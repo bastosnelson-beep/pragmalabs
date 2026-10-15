@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pragma4 | Confirm subscription</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/pragma4-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <a href="/en/" class="logo"><img src="../assets/logo/pragma4-logo-horizontal.svg" alt="Pragma4 — Real-world value, through AI" width="220" height="48" /></a>
+      <nav class="nav-links" id="nav-links">
+        <a href="/en/#capabilities">Capabilities</a>
+        <a href="/en/#method">Method</a>
+        <a href="/en/services">Services</a>
+        <a href="/en/contact" class="btn btn-primary">Contact us</a>
+        <a href="/en/contact#faq" class="nav-faq" title="Frequently asked questions">FAQ</a>
+        <div class="lang-switch">
+          <a href="/confirmation">FR</a>
+          <a href="/en/confirm" class="active">EN</a>
+          <a href="/pt/confirmacao">PT</a>
+        </div>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <main class="legal unsub">
+    <div class="container legal-container unsub-box"
+         data-endpoint="https://adamlippes.app.n8n.cloud/webhook/pragma4-newsletter-confirm" data-ok="Done: your subscription is confirmed. Welcome! You will receive the next Pragma4 newsletter." data-bad="This confirmation link is no longer valid: it may have expired (7 days). Please subscribe again from the bottom of any page." data-err="Something went wrong. Please try again shortly or write to us at hello@pragma4.com." data-sending="Confirming...">
+      <h1>Confirm your subscription</h1>
+      <p class="unsub-intro">One last click to receive the Pragma4 newsletter on AI news.</p>
+      <button type="button" class="btn btn-primary unsub-btn">Confirm my subscription</button>
+      <p class="unsub-status" role="status" aria-live="polite"></p>
+      <p class="unsub-back"><a href="/en/">← Back to the homepage</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-bottom">
+      <div class="footer-brand"><a href="/en/" class="footer-logo"><img src="../assets/logo/pragma4-logo-horizontal.svg" alt="Pragma4 — Real-world value, through AI" width="200" height="44" loading="lazy" /></a><span>Engineered for impact.</span></div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Pragma4. All rights reserved.</span>
+    </div>
+    <div class="wordmark" aria-hidden="true"><img src="../assets/logo/pragma4-wordmark.svg" alt="" /></div>
+  </footer>
+
+  <script src="../assets/script.js"></script>
+</body>
+</html>
