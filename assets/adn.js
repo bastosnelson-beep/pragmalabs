@@ -1,6 +1,6 @@
 /* Bandeau ADN des secteurs (page d'accueil FR/EN/PT)
    Double hélice animée en CSS, secteurs qui apparaissent à tour de rôle.
-   La largeur s'adapte au conteneur ; sur mobile un seul secteur à la fois. */
+   La largeur s'adapte au conteneur ; au moins 3 secteurs visibles à tout moment. */
 (function () {
   var LABELS = {
     fr: ['Retail de luxe', 'Immobilier', 'Architecture', 'Conseil juridique', 'Industrie', 'Négoce & e-commerce'],
@@ -16,7 +16,7 @@
     { at: 40 / 55, top: true, order: 2 },
     { at: 47 / 55, top: false, order: 5 }
   ];
-  var TWIST = 16, CYCLE = 30, STEP = 24, START = 56, PER_TURN = 22, BOX = 240;
+  var TWIST = 16, CYCLE = 18, STEP = 24, START = 56, PER_TURN = 22, BOX = 240;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
@@ -42,22 +42,30 @@
         '<i class="adn-line" style="' + st + '"></i><i class="adn-a" style="' + st + '"></i><i class="adn-b" style="' + st + '"></i></div>';
     }
     h += '</div>';
-    var n = SECTORS.length, cyc = solo ? 36 : CYCLE;
+    // Au moins 3 secteurs visibles en permanence : 6 secteurs décalés de cyc/6,
+    // chacun visible ~la moitié du cycle (desktop : 6 emplacements ; mobile : 3 emplacements partagés).
+    var n = SECTORS.length, cyc = CYCLE;
+    var box = solo ? 150 : BOX;
+    var slots = [{ f: 0.2, top: true }, { f: 0.5, top: false }, { f: 0.8, top: true }];
     SECTORS.forEach(function (s, k) {
-      var idx = Math.round(s.at * (count - 1));
-      var x = start + idx * STEP + 4;
-      var order = solo ? k : s.order;
-      var d = ((order / n) * cyc - cyc).toFixed(2);
-      var first = (solo && k === 0) ? ' first' : '';
+      var x, top, order;
+      if (solo) {
+        var sl = slots[k % 3];
+        x = Math.round(W * sl.f); top = sl.top; order = k;
+      } else {
+        x = start + Math.round(s.at * (count - 1)) * STEP + 4; top = s.top; order = s.order;
+      }
+      var d = (((order / n) + 0.05) * cyc - cyc).toFixed(2);
       var anim = 'animation-duration:' + cyc + 's;animation-delay:' + d + 's';
-      var boxX = Math.max(0, Math.min(W - BOX, x - BOX / 2));
+      var extra = (solo ? ' solo' : '') + (solo && k >= 3 ? ' rm-hide' : '');
+      var boxX = Math.max(0, Math.min(W - box, x - box / 2));
       var num = '<span class="adn-num">' + (k < 9 ? '0' : '') + (k + 1) + '</span>';
       var lab = '<span class="adn-label">' + esc(labels[k]) + '</span>';
       var stem = '<i class="adn-stem"></i>';
-      h += '<div class="adn-glow' + (solo ? ' solo' : '') + first + '" style="left:' + (x - 30) + 'px;' + anim + '"></div>';
-      h += '<div class="adn-mol ' + (s.top ? 'top' : 'bottom') + (solo ? ' solo' : '') + first + '" style="left:' + boxX + 'px;' + anim + '">' +
-        (s.top ? '<div class="adn-txt">' + num + lab + '</div>' + molSvg(true) + stem
-               : stem + molSvg(false) + '<div class="adn-txt">' + lab + num + '</div>') + '</div>';
+      h += '<div class="adn-glow' + extra + '" style="left:' + (x - 30) + 'px;' + anim + '"></div>';
+      h += '<div class="adn-mol ' + (top ? 'top' : 'bottom') + extra + '" style="left:' + boxX + 'px;width:' + box + 'px;' + anim + '">' +
+        (top ? '<div class="adn-txt">' + num + lab + '</div>' + molSvg(true) + stem
+             : stem + molSvg(false) + '<div class="adn-txt">' + lab + num + '</div>') + '</div>';
     });
     h += '</div>';
     el.innerHTML = h;
