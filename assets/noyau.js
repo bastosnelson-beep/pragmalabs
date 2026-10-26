@@ -92,9 +92,9 @@
     process: '<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/>',
     brain: '<path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 3 3 3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z"/><path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-3 3 3 3 0 0 1-3-3"/><path d="M9 9h1M14 9h1M9 14h1M14 14h1"/>'
   };
-  function icon(name, size, stroke) {
-    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="' + stroke +
-      '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + '</svg>';
+  function icon(name, size, sw) {
+    return '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' + (sw || 1.4) +
+      '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICONS[name] + '</svg>';
   }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
 
@@ -104,7 +104,6 @@
   var IN_ICONS = ['chat', 'doc', 'video', 'book', 'db', 'social', 'audio'];
   var OUT_ICONS = ['mail', 'calendar', 'pen', 'screen', 'target', 'check', 'support'];
   var ORBIT_ICONS = ['model', 'context', 'agents', 'process'];
-  var ORBIT_COLORS = ['#2BC77A', '#6B6A66', '#14161C', '#9C9A93'];
 
   function build(root) {
     var lang = (root.dataset.lang || document.documentElement.lang || 'fr').slice(0, 2);
@@ -114,39 +113,42 @@
 
     var svg = '<svg class="nd-lines" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true">';
     svg += '<circle class="nd-ring" cx="' + CX + '" cy="' + CY + '" r="' + R + '"/>';
+    svg += '<circle class="nd-core-ring" cx="' + CX + '" cy="' + CY + '" r="92"/>';
     [[557, 133], [803, 156], [877, 241], [727, 217], [450, 300], [790, 590], [537, 776], [856, 595], [430, 198]].forEach(function (d, i) {
-      svg += '<circle cx="' + d[0] + '" cy="' + d[1] + '" r="' + (i % 3 === 0 ? 4 : 2.5) + '" fill="#D9D6CF"/>';
+      svg += '<circle class="nd-dust" cx="' + d[0] + '" cy="' + d[1] + '" r="' + (i % 3 === 0 ? 2.5 : 1.6) + '"/>';
     });
     IN_POS.forEach(function (p) {
       var x = p[0] + 235, y = p[1] + 30;
-      svg += '<path class="nd-flow nd-in" d="M' + x + ' ' + y + ' C' + (x + 170) + ' ' + y + ', ' + (CX - 120) + ' ' + CY + ', ' + (CX - 40) + ' ' + CY + '"/>';
+      var dIn = 'M' + x + ' ' + y + ' C' + (x + 170) + ' ' + y + ', ' + (CX - 120) + ' ' + CY + ', ' + (CX - 40) + ' ' + CY;
+      svg += '<path class="nd-base nd-in" d="' + dIn + '"/><path class="nd-flow nd-in" d="' + dIn + '"/>';
     });
     OUT_POS.forEach(function (p) {
       var x = p[0], y = p[1] + 30;
-      svg += '<path class="nd-flow nd-out" d="M' + (CX + 40) + ' ' + CY + ' C' + (CX + 120) + ' ' + CY + ', ' + (x - 170) + ' ' + y + ', ' + x + ' ' + y + '"/>';
+      var dOut = 'M' + (CX + 40) + ' ' + CY + ' C' + (CX + 120) + ' ' + CY + ', ' + (x - 170) + ' ' + y + ', ' + x + ' ' + y;
+      svg += '<path class="nd-base nd-out" d="' + dOut + '"/><path class="nd-flow nd-out" d="' + dOut + '"/>';
     });
     svg += '</svg>';
 
     var html = '<div class="nd-sizer"></div><div class="nd-stage">';
     html += '<div class="nd-glow"></div>' + svg;
-    html += '<div class="nd-caption" style="left:110px">' + esc(t.left) + '</div>';
-    html += '<div class="nd-caption" style="right:160px">' + esc(t.right) + '</div>';
+    html += '<div class="nd-caption" style="left:45px">\u2190 ' + esc(t.left) + '</div>';
+    html += '<div class="nd-caption" style="right:83px">' + esc(t.right) + ' \u2192</div>';
     html += '<div class="nd-beam"></div>';
-    html += '<div class="nd-core">' + icon('brain', 50, '#138A52') +
+    html += '<div class="nd-core">' + icon('brain', 44, 1.2) +
       '<div class="nd-core-name">' + esc(t.core) + '</div><div class="nd-core-sub">' + esc(t.coreSub) + '</div></div>';
     html += '<div class="nd-title"><div>' + esc(t.title) + '</div><div>' + esc(t.subtitle) + '</div></div>';
     IN_POS.forEach(function (p, i) {
       html += '<div class="nd-card nd-card-in" style="left:' + p[0] + 'px;top:' + p[1] + 'px">' +
-        '<span class="nd-ico">' + icon(IN_ICONS[i], 19, '#14161C') + '</span>' +
+        '<span class="nd-ico">' + icon(IN_ICONS[i], 19) + '</span>' +
         '<span><b>' + esc(t.inputs[i][0]) + '</b><small>' + esc(t.inputs[i][1]) + '</small></span></div>';
     });
     OUT_POS.forEach(function (p, i) {
       html += '<div class="nd-card nd-card-out" style="left:' + p[0] + 'px;top:' + p[1] + 'px">' +
-        '<span class="nd-ico">' + icon(OUT_ICONS[i], 19, '#138A52') + '</span><b>' + esc(t.outputs[i]) + '</b></div>';
+        '<span class="nd-ico">' + icon(OUT_ICONS[i], 19) + '</span><b>' + esc(t.outputs[i]) + '</b></div>';
     });
     t.orbit.forEach(function (label, i) {
-      html += '<div class="nd-orbit"><span class="nd-orbit-ico" style="color:' + ORBIT_COLORS[i] + '">' +
-        icon(ORBIT_ICONS[i], 21, 'currentColor') + '</span><span class="nd-orbit-label">' + esc(label) + '</span></div>';
+      html += '<div class="nd-orbit"><span class="nd-orbit-ico">' +
+        icon(ORBIT_ICONS[i], 18) + '</span><span class="nd-orbit-label">' + esc(label) + '</span></div>';
     });
     html += '</div>';
     root.innerHTML = html;
