@@ -434,10 +434,10 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 0; overflow: hidde
 .nd-dust { fill: #FFFFFF; fill-opacity: .35; }
 .nd-base { fill: none; stroke-width: 1; }
 .nd-base.nd-in { stroke: rgba(255,255,255,.12); }
-.nd-base.nd-out { stroke: rgba(255,255,255,.22); }
+.nd-base.nd-out { stroke: rgba(43,199,122,.28); }
 .nd-flow { fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 0.1 19.9; animation: nd-flow 1.4s linear infinite; }
 .nd-in { stroke: rgba(255,255,255,.45); }
-.nd-out { stroke: #FFFFFF; }
+.nd-flow.nd-out { stroke: #2BC77A; }
 @keyframes nd-flow { to { stroke-dashoffset: -20; } }
 .nd-caption { position: absolute; top: 42px; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
 .nd-beam { position: absolute; left: 450px; top: 432px; width: 385px; height: 1px;
@@ -446,7 +446,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 0; overflow: hidde
   background: #0B0B0C; border: 1.4px solid #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
   box-shadow: 0 0 0 10px #0B0B0C, 0 0 40px rgba(255,255,255,.12); z-index: 3; color: #FFFFFF; }
 .nd-core-name { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: #FFFFFF; line-height: 1.2; text-align: center; }
-.nd-core-sub { font-size: 9px; letter-spacing: .28em; padding-left: .28em; color: rgba(255,255,255,.55); }
+.nd-core-sub { font-size: 10px; letter-spacing: .28em; padding-left: .28em; color: #2BC77A; }
 .nd-title { position: absolute; left: 493px; top: 535px; width: 300px; display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 3; text-align: center; }
 .nd-title div:first-child { font-size: 13px; letter-spacing: .3em; color: #FFFFFF; }
 .nd-title div:last-child { font-size: 9px; letter-spacing: .3em; color: rgba(255,255,255,.55); white-space: nowrap; }
