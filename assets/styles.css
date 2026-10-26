@@ -266,6 +266,11 @@ section { padding: 56px 0; }
 .pillar .visual--img { background: #FFFFFF; border: 1px solid var(--border); overflow: hidden; }
 .pillar .visual--img img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
+/* Vignettes animées (fond noir, ligne blanche) */
+.pillar .visual--anim { aspect-ratio: auto; background: #0B0B0C; border: 1px solid #26262A; overflow: hidden; display: flex; flex-direction: column; }
+.pillar .visual--anim img { display: block; width: 100%; height: auto; }
+.pillar .visual--anim .pillar-tags { margin: 0; padding: 14px 18px; border-top: 1px solid #1E1E22; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #9A9AA2; line-height: 1.5; min-height: calc(3em + 28px); display: flex; align-items: center; box-sizing: border-box; }
+
 
 /* ---------- Stats ---------- */
 .stats {

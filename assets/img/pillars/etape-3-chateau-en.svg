@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 300" width="440" height="300">
+<rect width="440" height="300" fill="#0B0B0C"/>
+<style>.rot{transform-origin:220px 145px;animation:rot 48s linear infinite}.orbit{transform-origin:220px 145px;animation:rot 16s linear infinite}@keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}.pulse{transform-origin:220px 145px;animation:pulse 4s ease-out infinite}@keyframes pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.14);opacity:0}}.flag{transform-origin:220px 90px;animation:wave 1.8s ease-in-out infinite}@keyframes wave{0%,100%{transform:skewY(0) scaleX(1)}50%{transform:skewY(-9deg) scaleX(.86)}}.inc{stroke-dasharray:0 2;animation:inc 4.2s ease-in infinite}@keyframes inc{0%{stroke-dashoffset:0;opacity:0}12%{opacity:1}80%{stroke-dashoffset:-1;opacity:1}86%,100%{stroke-dashoffset:-1;opacity:0}}.inct{stroke-dasharray:.14 2;animation:inct 4.2s ease-in infinite}@keyframes inct{0%{stroke-dashoffset:.14;opacity:0}12%{opacity:.45}80%{stroke-dashoffset:-.86;opacity:.45}86%,100%{stroke-dashoffset:-.86;opacity:0}}.imp{transform-box:fill-box;transform-origin:center;opacity:0;animation:imp 4.2s ease-out infinite}@keyframes imp{0%,78%{opacity:0;transform:scale(.4)}82%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.2)}}@media (prefers-reduced-motion: reduce){.rot,.orbit,.pulse,.flag,.inc,.inct,.imp{animation:none}.inc,.inct,.imp,.pulse{opacity:0}}</style>
+<g fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round">
+<g stroke-width="1.6">
+<path class="inct" pathLength="1" d="M433.0 45.7L328.8 94.3" style="animation-delay:0s"/><path class="inc" pathLength="1" d="M433.0 45.7L328.8 94.3" stroke-width="6" style="animation-delay:0s"/><circle class="imp" cx="328.8" cy="94.3" r="6" stroke-width="1.2" style="animation-delay:0s"/>
+<path class="inct" pathLength="1" d="M7.0 244.3L111.2 195.7" style="animation-delay:-0.7s"/><path class="inc" pathLength="1" d="M7.0 244.3L111.2 195.7" stroke-width="6" style="animation-delay:-0.7s"/><circle class="imp" cx="111.2" cy="195.7" r="6" stroke-width="1.2" style="animation-delay:-0.7s"/>
+<path class="inct" pathLength="1" d="M300.4 -75.8L261.0 32.2" style="animation-delay:-1.4s"/><path class="inc" pathLength="1" d="M300.4 -75.8L261.0 32.2" stroke-width="6" style="animation-delay:-1.4s"/><circle class="imp" cx="261.0" cy="32.2" r="6" stroke-width="1.2" style="animation-delay:-1.4s"/>
+<path class="inct" pathLength="1" d="M433.0 244.3L328.8 195.7" style="animation-delay:-2.1s"/><path class="inc" pathLength="1" d="M433.0 244.3L328.8 195.7" stroke-width="6" style="animation-delay:-2.1s"/><circle class="imp" cx="328.8" cy="195.7" r="6" stroke-width="1.2" style="animation-delay:-2.1s"/>
+<path class="inct" pathLength="1" d="M7.0 45.7L111.2 94.3" style="animation-delay:-2.8s"/><path class="inc" pathLength="1" d="M7.0 45.7L111.2 94.3" stroke-width="6" style="animation-delay:-2.8s"/><circle class="imp" cx="111.2" cy="94.3" r="6" stroke-width="1.2" style="animation-delay:-2.8s"/>
+<path class="inct" pathLength="1" d="M85.2 337.5L151.2 243.3" style="animation-delay:-3.5s"/><path class="inc" pathLength="1" d="M85.2 337.5L151.2 243.3" stroke-width="6" style="animation-delay:-3.5s"/><circle class="imp" cx="151.2" cy="243.3" r="6" stroke-width="1.2" style="animation-delay:-3.5s"/>
+</g>
+<circle class="pulse" cx="220" cy="145" r="108"/>
+<circle class="rot" cx="220" cy="145" r="116" stroke-width="1.2" stroke-opacity="0.55" stroke-dasharray="3 7"/>
+<circle cx="220" cy="145" r="108" stroke-width="1.6"/>
+<circle cx="220" cy="145" r="84" stroke-opacity="0.18" stroke-dasharray="1 5"/>
+<g class="orbit">
+<circle cx="304" cy="145" r="3.5" fill="#FFF" stroke="none"/><circle cx="304" cy="145" r="8" stroke-opacity="0.4"/>
+<circle cx="178" cy="217.7" r="3.5" fill="#FFF" stroke="none"/><circle cx="178" cy="217.7" r="8" stroke-opacity="0.4"/>
+<circle cx="178" cy="72.3" r="3.5" fill="#FFF" stroke="none"/><circle cx="178" cy="72.3" r="8" stroke-opacity="0.4"/>
+</g>
+<g stroke-width="1.6">
+<path d="M160 195H280"/><path d="M172 195V128h6v6h6v-6h6v6h6v-6h6V195"/><path d="M238 195V128h6v6h6v-6h6v6h6v-6h6V195"/>
+<path d="M205 195V108h6v6h6v-6h6v6h6v-6h6V195"/><path d="M202 150H205M235 150H238"/><path d="M212 195V180A8 8 0 0 1 228 180V195"/>
+<path d="M216 140V134A4 4 0 0 1 224 134V140Z" stroke-width="1.2"/><path d="M187 150V160M253 150V160" stroke-width="1.2"/>
+<path d="M220 108V82"/><path class="flag" d="M220 84H238L233 90L238 96H220Z" fill="#FFF"/>
+</g></g>
+<text x="220" y="285" text-anchor="middle" fill="#FFF" fill-opacity="0.6" font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="9" letter-spacing="1.4">SOVEREIGN PERIMETER</text>
+</svg>
