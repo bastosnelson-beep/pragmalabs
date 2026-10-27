@@ -778,6 +778,7 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 0; overflow: hidde
 .adn-mol.bottom { top: 314px; justify-content: flex-start; }
 .adn-mol.solo, .adn-glow.solo { animation-name: adnSolo; }
 .adn-txt { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.adn-label .nw { white-space: nowrap; }
 .adn-num { font-size: 11px; letter-spacing: .24em; color: #9a9a9a; }
 .adn-label { font-size: 15px; font-weight: 300; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
 .adn-mol svg line { stroke: #fff; stroke-width: 1; }
@@ -789,9 +790,9 @@ footer { border-top: 1px solid var(--border); padding: 64px 0 0; overflow: hidde
 @keyframes adnTwist { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(-1); } }
 @keyframes adnStrandA { 0%,100% { transform: translateY(0); opacity: 1; } 50% { transform: translateY(174px); opacity: .35; } }
 @keyframes adnStrandB { 0%,100% { transform: translateY(0); opacity: .35; } 50% { transform: translateY(-174px); opacity: 1; } }
-@keyframes adnMol { 0% { opacity: 0; filter: blur(3px); } 4%,58% { opacity: 1; filter: blur(0); } 64%,100% { opacity: 0; filter: blur(3px); } }
-@keyframes adnGlow { 0% { opacity: 0; transform: scale(.4); } 4%,58% { opacity: 1; transform: scale(1); } 64%,100% { opacity: 0; transform: scale(.4); } }
-@keyframes adnSolo { 0% { opacity: 0; filter: blur(3px); } 2%,48% { opacity: 1; filter: blur(0); } 50%,100% { opacity: 0; filter: blur(3px); } }
+@keyframes adnMol { 0% { opacity: 0; filter: blur(3px); } 4%,38% { opacity: 1; filter: blur(0); } 43%,100% { opacity: 0; filter: blur(3px); } }
+@keyframes adnGlow { 0% { opacity: 0; transform: scale(.4); } 4%,38% { opacity: 1; transform: scale(1); } 43%,100% { opacity: 0; transform: scale(.4); } }
+@keyframes adnSolo { 0% { opacity: 0; filter: blur(3px); } 1%,24% { opacity: 1; filter: blur(0); } 25%,100% { opacity: 0; filter: blur(3px); } }
 @media (max-width: 760px) { .adn-label { font-size: 12px; letter-spacing: .08em; white-space: normal; text-align: center; line-height: 1.3; } }
 @media (prefers-reduced-motion: reduce) {
   .adn-rung i { animation-play-state: paused; }

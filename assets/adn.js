@@ -3,20 +3,15 @@
    La largeur s'adapte au conteneur ; au moins 3 secteurs visibles à tout moment. */
 (function () {
   var LABELS = {
-    fr: ['Retail de luxe', 'Immobilier', 'Architecture', 'Conseil juridique', 'Industrie', 'Négoce & e-commerce'],
-    en: ['Luxury retail', 'Real estate', 'Architecture', 'Legal advisory', 'Manufacturing', 'Wholesale & e-commerce'],
-    pt: ['Retalho de luxo', 'Imobiliário', 'Arquitetura', 'Consultoria jurídica', 'Indústria', 'Distribuição & e-commerce']
+    fr: ['Retail de luxe', 'Immobilier', 'Architecture', 'Conseil juridique', 'Industrie', 'Négoce & e-commerce', 'Supply chain', 'Logistique', 'Transports', 'Finance'],
+    en: ['Luxury retail', 'Real estate', 'Architecture', 'Legal advisory', 'Manufacturing', 'Wholesale & e-commerce', 'Supply chain', 'Logistics', 'Transport', 'Finance'],
+    pt: ['Retalho de luxo', 'Imobiliário', 'Arquitetura', 'Consultoria jurídica', 'Indústria', 'Distribuição & e-commerce', 'Supply chain', 'Logística', 'Transportes', 'Finanças']
   };
-  // position relative sur l'hélice (0..1), en haut ou en bas, ordre d'apparition
-  var SECTORS = [
-    { at: 8 / 55, top: true, order: 0 },
-    { at: 15 / 55, top: false, order: 3 },
-    { at: 22 / 55, top: true, order: 1 },
-    { at: 32 / 55, top: false, order: 4 },
-    { at: 40 / 55, top: true, order: 2 },
-    { at: 47 / 55, top: false, order: 5 }
-  ];
-  var TWIST = 16, CYCLE = 18, STEP = 24, START = 56, PER_TURN = 22, BOX = 240;
+  // Emplacements de gauche à droite (alternance haut / bas) -> secteur affiché
+  var POS_SECTOR = [0, 6, 1, 7, 2, 8, 3, 9, 4, 5];
+  // Ordre d'apparition : les voisins d'une même rangée n'apparaissent jamais ensemble
+  var STEP_POS = [0, 1, 4, 5, 8, 9, 2, 3, 6, 7];
+  var TWIST = 16, STEP_S = 3, STEP = 24, START = 56, PER_TURN = 22, BOX = 240;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
@@ -42,31 +37,33 @@
         '<i class="adn-line" style="' + st + '"></i><i class="adn-a" style="' + st + '"></i><i class="adn-b" style="' + st + '"></i></div>';
     }
     h += '</div>';
-    // Au moins 3 secteurs visibles en permanence : 6 secteurs décalés de cyc/6,
-    // chacun visible ~la moitié du cycle (desktop : 6 emplacements ; mobile : 3 emplacements partagés).
-    var n = SECTORS.length, cyc = CYCLE;
+    // Au moins 3 secteurs visibles en permanence, un nouveau toutes les STEP_S secondes.
+    // Desktop : 10 emplacements le long de l'hélice ; mobile : 3 emplacements partagés.
+    var n = STEP_POS.length;
+    var steps = solo ? Math.ceil(n / 3) * 3 : n;
+    var cyc = steps * (solo ? 2.5 : STEP_S);
     var box = solo ? 150 : BOX;
     var slots = [{ f: 0.2, top: true }, { f: 0.5, top: false }, { f: 0.8, top: true }];
-    SECTORS.forEach(function (s, k) {
-      var x, top, order;
+    for (var i = 0; i < steps; i++) {
+      var pos = STEP_POS[i % n], k = POS_SECTOR[pos], x, top;
       if (solo) {
-        var sl = slots[k % 3];
-        x = Math.round(W * sl.f); top = sl.top; order = k;
+        var sl = slots[i % 3];
+        x = Math.round(W * sl.f); top = sl.top;
       } else {
-        x = start + Math.round(s.at * (count - 1)) * STEP + 4; top = s.top; order = s.order;
+        x = start + Math.round((0.07 + 0.86 * pos / (n - 1)) * (count - 1)) * STEP + 4; top = pos % 2 === 0;
       }
-      var d = (((order / n) + 0.05) * cyc - cyc).toFixed(2);
+      var d = (((i / steps) + 0.05) * cyc - cyc).toFixed(2);
       var anim = 'animation-duration:' + cyc + 's;animation-delay:' + d + 's';
-      var extra = (solo ? ' solo' : '') + (solo && k >= 3 ? ' rm-hide' : '');
+      var extra = (solo ? ' solo' : '') + (solo && i >= 3 ? ' rm-hide' : '');
       var boxX = Math.max(0, Math.min(W - box, x - box / 2));
       var num = '<span class="adn-num">' + (k < 9 ? '0' : '') + (k + 1) + '</span>';
-      var lab = '<span class="adn-label">' + esc(labels[k]) + '</span>';
+      var lab = '<span class="adn-label">' + esc(labels[k]).replace('e-commerce', '<span class="nw">e-commerce</span>') + '</span>';
       var stem = '<i class="adn-stem"></i>';
       h += '<div class="adn-glow' + extra + '" style="left:' + (x - 30) + 'px;' + anim + '"></div>';
       h += '<div class="adn-mol ' + (top ? 'top' : 'bottom') + extra + '" style="left:' + boxX + 'px;width:' + box + 'px;' + anim + '">' +
         (top ? '<div class="adn-txt">' + num + lab + '</div>' + molSvg(true) + stem
              : stem + molSvg(false) + '<div class="adn-txt">' + lab + num + '</div>') + '</div>';
-    });
+    }
     h += '</div>';
     el.innerHTML = h;
     el.setAttribute('data-w', W);
