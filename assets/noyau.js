@@ -50,23 +50,23 @@
       aria: "Kernel diagram: the company's scattered inputs converge into an AI second brain that turns them into executed work."
     },
     pt: {
-      left: 'O fluxo disperso do trabalho diário',
+      left: 'A dispersão das tarefas do dia a dia',
       right: 'Execução sistemática',
-      core: 'Segundo cérebro', coreSub: 'IA',
+      core: 'Um segundo cérebro', coreSub: 'IA',
       title: 'O NÚCLEO', subtitle: 'SISTEMA OPERATIVO DE IA',
       orbit: ['Modelo', 'Contexto', 'Agentes', 'Processo'],
       inputs: [
         ['Voz e mensagens', 'WhatsApp / Telegram'],
         ['Notas e rascunhos', 'Google Docs / Apple Notes'],
-        ['Reuniões por vídeo', 'Google Meet / Zoom'],
+        ['Videoconferências', 'Google Meet / Zoom'],
         ['Livros e destaques', 'Kindle / Readwise'],
         ['Dados e CRM', 'Notion / Obsidian / Asana'],
         ['Redes e monitorização', 'LinkedIn / Instagram / X'],
         ['Áudio e inspiração', 'Podcasts / YouTube']
       ],
-      outputs: ['E-mails e mensagens', 'Planeamento e agenda', 'Criação de conteúdos', 'Apresentações e pitch',
+      outputs: ['E-mails e mensagens', 'Planeamento e agenda', 'Criação de conteúdos', 'Apresentações e propostas de negócio',
         'Prospeção e vendas', 'Gestão de projetos', 'Apoio ao cliente'],
-      aria: 'Diagrama do Núcleo: a informação dispersa da empresa converge para um segundo cérebro de IA que a transforma em trabalho executado.'
+      aria: 'Diagrama do Núcleo: a informação dispersa pela empresa é reunida num segundo cérebro de IA, que a transforma em tarefas realizadas.'
     }
   };
 

@@ -276,13 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       pt: {
         check: 'Verifique os seguintes campos:',
-        type: 'Escolha o assunto do seu pedido.',
+        type: 'Selecione o assunto do seu pedido.',
         name: 'Indique o seu nome.',
-        emailReq: 'Indique o seu endereço de email.',
+        emailReq: 'Indique o seu endereço de e-mail.',
         emailBad: 'O endereço de email não é válido (ex. nome@empresa.pt).',
-        ccReq: 'Escolha o indicativo do país do seu telefone.',
+        ccReq: 'Selecione o indicativo telefónico do seu país.',
         phoneReq: 'Indique o seu número de telefone.',
-        phoneBad: 'O número não corresponde a um número válido para o indicativo {cc} ({country}).',
+        phoneBad: 'O número de telefone introduzido não é válido para o indicativo {cc} ({country}).',
         webBad: 'O endereço do website não é válido (ex. www.empresa.pt).',
         allCountries: 'Todos os países'
       }

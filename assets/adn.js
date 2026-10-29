@@ -5,7 +5,7 @@
   var LABELS = {
     fr: ['Retail de luxe', 'Immobilier', 'Architecture', 'Conseil juridique', 'Industrie', 'Négoce & e-commerce', 'Supply chain', 'Logistique', 'Transports', 'Finance'],
     en: ['Luxury retail', 'Real estate', 'Architecture', 'Legal advisory', 'Manufacturing', 'Wholesale & e-commerce', 'Supply chain', 'Logistics', 'Transport', 'Finance'],
-    pt: ['Retalho de luxo', 'Imobiliário', 'Arquitetura', 'Consultoria jurídica', 'Indústria', 'Distribuição & e-commerce', 'Supply chain', 'Logística', 'Transportes', 'Finanças']
+    pt: ['Comércio de luxo', 'Imobiliário', 'Arquitetura', 'Consultoria jurídica', 'Indústria', 'Distribuição e comércio eletrónico', 'Supply chain', 'Logística', 'Transportes', 'Finanças']
   };
   // Emplacements de gauche à droite (alternance haut / bas) -> secteur affiché
   var POS_SECTOR = [0, 6, 1, 7, 2, 8, 3, 9, 4, 5];
