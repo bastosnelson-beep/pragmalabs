@@ -1,0 +1,437 @@
+<svg viewBox="0 0 1200 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>Système IA Audeon — OS IA complet</title>
+  <desc>Schéma architectural du système IA Audeon : sources d'entrée, cerveau central, et productions en sortie</desc>
+  
+  <defs>
+    <!-- Filtres de flou pour les halos et lueurs -->
+    <filter id="blur-xl" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="80"/>
+    </filter>
+    <filter id="blur-md" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <filter id="blur-sm" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15"/>
+    </filter>
+    
+    <!-- Ombre subtile pour les cartes -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#101828" flood-opacity="0.08"/>
+    </filter>
+    
+    <!-- Grille de fond -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E6E6E3" stroke-width="1" opacity="0.6"/>
+    </pattern>
+
+    <!-- Gradients pour le centre -->
+    <radialGradient id="centerBrain" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0033FF" />
+      <stop offset="100%" stop-color="#1A1A4A" />
+    </radialGradient>
+    
+    <!-- Gradients des flux -->
+    <linearGradient id="flowIn" x1="200" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0033FF" stop-opacity="0.1" />
+      <stop offset="50%" stop-color="#5C7CFF" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#5C7CFF" stop-opacity="0.9" />
+    </linearGradient>
+
+    <linearGradient id="flowOut" x1="600" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0033FF" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#5C7CFF" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#5C7CFF" stop-opacity="0.1" />
+    </linearGradient>
+
+    
+    <!-- Marqueur de flèche pour les annotations -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475467" opacity="0.7"/>
+    </marker>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap');
+    
+    text {
+      font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+    }
+    
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .title { font-size: 13px; font-weight: 600; fill: #101828; }
+    .sub { font-size: 11px; font-weight: 400; fill: #475467; }
+    .annotation { font-size: 11px; font-style: italic; fill: #475467; }
+    
+    .card-bg { transition: filter 0.3s ease; }
+    .card:hover .card-bg {
+      filter: drop-shadow(0 8px 16px rgba(16,24,40,0.15));
+    }
+    
+    .flow-base-in { stroke: url(#flowIn); fill: none; stroke-width: 2.5; opacity: 0.2; }
+    .flow-anim-in { 
+      stroke: url(#flowIn); fill: none; stroke-width: 2.5; opacity: 0.8;
+      stroke-dasharray: 8 16; 
+      animation: flowForward 2.5s linear infinite; 
+    }
+    
+    .flow-base-out { stroke: url(#flowOut); fill: none; stroke-width: 2.5; opacity: 0.2; }
+    .flow-anim-out { 
+      stroke: url(#flowOut); fill: none; stroke-width: 2.5; opacity: 0.8;
+      stroke-dasharray: 8 16; 
+      animation: flowForward 2.5s linear infinite; 
+    }
+    
+    @keyframes flowForward {
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
+    }
+    
+    .pulse { animation: glowing 3s ease-in-out infinite alternate; }
+    @keyframes glowing {
+      0% { opacity: 0.6; filter: brightness(1); }
+      100% { opacity: 1; filter: brightness(1.2); }
+    }
+  </style>
+
+  <!-- FOND -->
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- ORBES DÉCORATIFS (Lumière de fond) -->
+  <circle cx="200" cy="200" r="250" fill="#E5EBFF" opacity="0.4" filter="url(#blur-xl)"/>
+  <circle cx="1000" cy="600" r="250" fill="#E5EBFF" opacity="0.3" filter="url(#blur-xl)"/>
+  <circle cx="600" cy="400" r="300" fill="#E6E6E3" opacity="0.3" filter="url(#blur-xl)"/>
+
+  <!-- LIGNES DE FLUX : ENTRÉES (Gauche vers Centre) - DÉSORDONNÉES -->
+  <g class="flows-in">
+    <!-- WhatsApp (40, 80) -->
+    <path class="flow-base-in" d="M 260 108 C 450 108, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 260 108 C 450 108, 480 400, 600 400"/>
+    <!-- Docs (160, 180) -->
+    <path class="flow-base-in" d="M 380 208 C 500 208, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 380 208 C 500 208, 480 400, 600 400"/>
+    <!-- Meet (20, 290) -->
+    <path class="flow-base-in" d="M 240 318 C 400 318, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 240 318 C 400 318, 480 400, 600 400"/>
+    <!-- Livres/Kindle (140, 400) -->
+    <path class="flow-base-in" d="M 360 428 C 480 428, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 360 428 C 480 428, 480 400, 600 400"/>
+    <!-- Notion/Obsidian (40, 520) -->
+    <path class="flow-base-in" d="M 260 548 C 420 548, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 260 548 C 420 548, 480 400, 600 400"/>
+    <!-- LinkedIn (180, 620) -->
+    <path class="flow-base-in" d="M 400 648 C 500 648, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 400 648 C 500 648, 480 400, 600 400"/>
+    <!-- Voice/Podcasts (70, 720) -->
+    <path class="flow-base-in" d="M 290 748 C 450 748, 480 400, 600 400"/>
+    <path class="flow-anim-in" d="M 290 748 C 450 748, 480 400, 600 400"/>
+  </g>
+
+  <!-- LIGNES DE FLUX : SORTIES (Centre vers Droite) - LÉGÈREMENT ÉCARTÉES -->
+  <g class="flows-out">
+    <!-- Sortie 1 -->
+    <path class="flow-base-out" d="M 600 400 C 720 400, 750 108, 880 108"/>
+    <path class="flow-anim-out" d="M 600 400 C 720 400, 750 108, 880 108"/>
+    <!-- Sortie 2 -->
+    <path class="flow-base-out" d="M 600 400 C 740 400, 760 208, 980 208"/>
+    <path class="flow-anim-out" d="M 600 400 C 740 400, 760 208, 980 208"/>
+    <!-- Sortie 3 -->
+    <path class="flow-base-out" d="M 600 400 C 760 400, 780 308, 920 308"/>
+    <path class="flow-anim-out" d="M 600 400 C 760 400, 780 308, 920 308"/>
+    <!-- Sortie 4 -->
+    <path class="flow-base-out" d="M 600 400 C 780 400, 790 408, 1000 408"/>
+    <path class="flow-anim-out" d="M 600 400 C 780 400, 790 408, 1000 408"/>
+    <!-- Sortie 5 -->
+    <path class="flow-base-out" d="M 600 400 C 760 400, 780 508, 900 508"/>
+    <path class="flow-anim-out" d="M 600 400 C 760 400, 780 508, 900 508"/>
+    <!-- Sortie 6 -->
+    <path class="flow-base-out" d="M 600 400 C 740 400, 760 608, 960 608"/>
+    <path class="flow-anim-out" d="M 600 400 C 740 400, 760 608, 960 608"/>
+    <!-- Sortie 7 -->
+    <path class="flow-base-out" d="M 600 400 C 720 400, 750 708, 880 708"/>
+    <path class="flow-anim-out" d="M 600 400 C 720 400, 750 708, 880 708"/>
+  </g>
+
+  <!-- CARTES SOURCES (GAUCHE - LOGOS STANDARDISÉS &amp; CENTRÉS) -->
+  <g id="sources">
+    <!-- 1. WhatsApp -->
+    <g transform="translate(40, 80)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#25D366"/>
+      <g transform="translate(16, 16)" fill="#FFFFFF">
+        <path d="M12.031 21.172l-3.219.844.844-3.141A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.956 9.956 0 0 1-4.969-1.328zm3.844-4.563c-.188-.094-1.125-.563-1.313-.609-.172-.063-.313-.094-.438.094-.125.188-.5.609-.609.734-.109.141-.219.156-.406.063-.375-.188-1.078-.391-1.813-1.047-.563-.5-.859-1.109-1.063-1.5-.109-.203.016-.281.094-.375.094-.094.203-.219.297-.344.094-.125.141-.203.203-.344.063-.141.031-.281-.016-.375-.047-.094-.438-1.063-.609-1.453-.172-.375-.328-.438-.328-.109 0-.25 0-.375 0-.141 0-.359.047-.547.25s-.719.703-.719 1.719.75 1.984.859 2.125c.109.141 1.453 2.219 3.516 3.094.484.203.859.328 1.156.422.484.156.922.141 1.266.078.406-.063 1.125-.453 1.281-.906.156-.453.156-.844.109-.922-.047-.078-.172-.125-.359-.219z"/>
+      </g>
+      <text x="56" y="26" class="title">Vocaux &amp; Messages</text>
+      <text x="56" y="42" class="sub">WhatsApp / Telegram</text>
+    </g>
+
+    <!-- 2. Google Docs -->
+    <g transform="translate(160, 180)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#4285F4"/>
+      <g transform="translate(16, 16)" fill="#FFFFFF">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-2 16H8v-2h4v2zm4-4H8v-2h8v2zm0-4H8v-2h8v2z"/>
+      </g>
+      <text x="56" y="26" class="title">Notes &amp; Brouillons</text>
+      <text x="56" y="42" class="sub">Google Docs / Apple Notes</text>
+    </g>
+
+    <!-- 3. Google Meet -->
+    <g transform="translate(20, 290)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#00832d"/>
+      <g transform="translate(16, 16)" fill="#FFFFFF">
+        <path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/>
+      </g>
+      <text x="56" y="26" class="title">Réunions Visio</text>
+      <text x="56" y="42" class="sub">Google Meet / Zoom</text>
+    </g>
+
+    <!-- 4. Livres (Kindle/Readwise) -->
+    <g transform="translate(140, 400)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#101828"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </g>
+      <text x="56" y="26" class="title">Livres &amp; Surlignages</text>
+      <text x="56" y="42" class="sub">Kindle / Readwise</text>
+    </g>
+
+    <!-- 5. Notion / Bases de données -->
+    <g transform="translate(40, 520)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#FFFFFF" stroke="#E6E6E3"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#000000" stroke-width="1.5" stroke-linejoin="round">
+        <path d="M4 6l8-3 8 3v12l-8 3-8-3z" />
+        <path d="M4 6l8 3v12" />
+        <path d="M12 9l8-3" />
+      </g>
+      <text x="56" y="26" class="title">Bases de données</text>
+      <text x="56" y="42" class="sub">Notion / Obsidian</text>
+    </g>
+
+    <!-- 6. LinkedIn / Réseaux -->
+    <g transform="translate(180, 620)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#0A66C2"/>
+      <g transform="translate(16, 16)" fill="#FFFFFF">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+      </g>
+      <text x="56" y="26" class="title">Veille &amp; Réseaux</text>
+      <text x="56" y="42" class="sub">LinkedIn / Twitter</text>
+    </g>
+
+    <!-- 7. Audio / Podcasts -->
+    <g transform="translate(70, 720)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#0029CC"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="11" r="3"/>
+        <path d="M12 14v7"/>
+        <path d="M8 21h8"/>
+        <path d="M18 11a6 6 0 0 1-12 0"/>
+        <path d="M21 11a9 9 0 0 1-18 0"/>
+      </g>
+      <text x="56" y="26" class="title">Audio &amp; Inspirations</text>
+      <text x="56" y="42" class="sub">Apple Podcasts / YouTube</text>
+    </g>
+  </g>
+
+  <!-- CARTES PRODUCTIONS (DROITE - ACTIONS PURIFIÉES SANS PLATEFORMES) -->
+  <g id="outputs">
+    <!-- 1. Emails &amp; Messages -->
+    <g transform="translate(880, 80)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <path d="M22 6l-10 7L2 6"/>
+      </g>
+      <text x="56" y="32" class="title">Emails &amp; Messages</text>
+    </g>
+
+    <!-- 2. Planning &amp; Agenda -->
+    <g transform="translate(980, 180)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+      </g>
+      <text x="56" y="32" class="title">Planning &amp; Agenda</text>
+    </g>
+
+    <!-- 3. Création de Contenu -->
+    <g transform="translate(920, 280)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20h9"/>
+        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+      </g>
+      <text x="56" y="32" class="title">Création de Contenu</text>
+    </g>
+
+    <!-- 4. Présentations &amp; Pitch -->
+    <g transform="translate(1000, 380)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M12 17v4"/>
+        <path d="M8 21h8"/>
+      </g>
+      <text x="56" y="32" class="title">Présentations &amp; Pitch</text>
+    </g>
+
+    <!-- 5. Prospection &amp; Ventes -->
+    <g transform="translate(900, 480)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="12" r="6"/>
+        <circle cx="12" cy="12" r="2"/>
+      </g>
+      <text x="56" y="32" class="title">Prospection &amp; Ventes</text>
+    </g>
+
+    <!-- 6. Gestion de Projets -->
+    <g transform="translate(960, 580)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11l3 3L22 4"/>
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+      </g>
+      <text x="56" y="32" class="title">Gestion de Projets</text>
+    </g>
+
+    <!-- 7. Support Client -->
+    <g transform="translate(880, 680)" class="card">
+      <rect class="card-bg" width="220" height="56" rx="8" fill="#F7F7F6" stroke="#E6E6E3" filter="url(#shadow)"/>
+      <rect x="12" y="12" width="32" height="32" rx="8" fill="#E5EBFF"/>
+      <g transform="translate(16, 16)" fill="none" stroke="#0033FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+      </g>
+      <text x="56" y="32" class="title">Support Client</text>
+    </g>
+  </g>
+
+  <!-- CENTRE — CERVEAU AUDEON (ROTATION ANIMÉE SÉCURISÉE) -->
+  <g id="centerBrainSystem">
+    <!-- Halos de lumière -->
+    <circle cx="600" cy="400" r="180" fill="rgba(37, 99, 235, 0.08)" filter="url(#blur-md)" class="pulse"/>
+    <circle cx="600" cy="400" r="120" fill="rgba(37, 99, 235, 0.12)" filter="url(#blur-sm)"/>
+    
+    <!-- Système Rotatif -->
+    <g>
+      <!-- Orbite globale qui tourne autour du centre 600,400 -->
+      <animateTransform attributeName="transform" type="rotate" from="0 600 400" to="360 600 400" dur="40s" repeatCount="indefinite" />
+      
+      <circle cx="600" cy="400" r="180" fill="none" stroke="#E6E6E3" stroke-dasharray="6 8" stroke-width="1.5"/>
+      
+      <!-- Satellites -->
+      <!-- 1. Modèle (Haut) -->
+      <g transform="translate(600, 220)">
+        <g>
+          <!-- Contre-rotation autour de son propre point 0,0 pour rester droit -->
+          <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="40s" repeatCount="indefinite" />
+          <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#E5EBFF" stroke-width="3" filter="url(#shadow)"/>
+          <g transform="translate(-12, -12)" fill="none" stroke="#0033FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4c-3.3 0-6 2.7-6 6 0 1.3.4 2.5 1.1 3.5l-1.6 4.8 4.8-1.6c1 .7 2.2 1.1 3.5 1.1 3.3 0 6-2.7 6-6s-2.7-6-6-6z"/>
+          </g>
+          <text x="0" y="-32" class="title" text-anchor="middle">Modèle</text>
+        </g>
+      </g>
+      
+      <!-- 2. Contexte (Droite) -->
+      <g transform="translate(780, 400)">
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="40s" repeatCount="indefinite" />
+          <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#E5EBFF" stroke-width="3" filter="url(#shadow)"/>
+          <g transform="translate(-12, -12)" fill="none" stroke="#0029CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          </g>
+          <text x="34" y="4" class="title" text-anchor="start">Contexte</text>
+        </g>
+      </g>
+
+      <!-- 3. Agents (Bas) -->
+      <g transform="translate(600, 580)">
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="40s" repeatCount="indefinite" />
+          <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#E5EBFF" stroke-width="3" filter="url(#shadow)"/>
+          <g transform="translate(-12, -12)" fill="none" stroke="#5C7CFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </g>
+          <text x="0" y="38" class="title" text-anchor="middle">Agents</text>
+        </g>
+      </g>
+
+      <!-- 4. Process (Gauche) -->
+      <g transform="translate(420, 400)">
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="40s" repeatCount="indefinite" />
+          <circle cx="0" cy="0" r="22" fill="#FFFFFF" stroke="#F0F0EE" stroke-width="3" filter="url(#shadow)"/>
+          <g transform="translate(-12, -12)" fill="none" stroke="#475467" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </g>
+          <text x="-34" y="4" class="title" text-anchor="end">Process</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- MARQUE AUDEON : monogramme A sur carré bleu -->
+    <g transform="translate(540, 320)">
+      <rect width="120" height="120" rx="26" fill="#0033FF" />
+      <path transform="scale(3.75)" fill-rule="evenodd" clip-rule="evenodd" d="M14.1 7H17.9L26 25H21.9L20.3 21.2H11.7L10.1 25H6L14.1 7ZM13 18H19L16 10.9L13 18Z" fill="#FFFFFF" />
+    </g>
+
+    <!-- Typographie Centrale -->
+    <text x="600" y="500" class="font-mono" font-size="12" fill="#101828" font-weight="bold" text-anchor="middle" letter-spacing="2">AUDEON</text>
+    <text x="600" y="518" class="font-mono" font-size="10" fill="#0033FF" text-anchor="middle" letter-spacing="4">OS IA</text>
+  </g>
+
+  <!-- PARTICULES FLOTTANTES (Données qui circulent) -->
+  <g fill="#5C7CFF" opacity="0.3">
+    <circle cx="400" cy="180" r="3"/>
+    <circle cx="480" cy="250" r="2.5"/>
+    <circle cx="520" cy="120" r="4"/>
+    <circle cx="430" cy="620" r="3"/>
+    <circle cx="500" cy="720" r="2"/>
+    <circle cx="750" cy="140" r="3"/>
+    <circle cx="820" cy="220" r="4"/>
+    <circle cx="720" cy="680" r="2.5"/>
+    <circle cx="800" cy="550" r="3"/>
+    <circle cx="680" cy="200" r="2"/>
+  </g>
+
+  <!-- ANNOTATIONS STYLE SKETCHNOTE -->
+  <!-- 1. Capture -->
+  <g transform="translate(180, 45)">
+    <text x="0" y="0" class="annotation" text-anchor="middle">Le flux chaotique du quotidien</text>
+    <path d="M 0 10 Q -20 25, -20 50" fill="none" stroke="#475467" opacity="0.6" stroke-width="1.2" marker-end="url(#arrow)"/>
+  </g>
+  
+  <!-- 2. Contexte -->
+  <g transform="translate(600, 640)">
+    <text x="0" y="0" class="annotation" text-anchor="middle">Contexte holistique</text>
+    <path d="M 0 -15 Q 0 -30, 0 -35" fill="none" stroke="#475467" opacity="0.6" stroke-width="1.2" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- 3. Sorties -->
+  <g transform="translate(1000, 45)">
+    <text x="0" y="0" class="annotation" text-anchor="middle">L'exécution systématique</text>
+    <path d="M 0 10 Q 20 25, 10 50" fill="none" stroke="#475467" opacity="0.6" stroke-width="1.2" marker-end="url(#arrow)"/>
+  </g>
+
+</svg>
