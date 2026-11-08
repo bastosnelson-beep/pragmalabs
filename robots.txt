@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /formation/
 
 Sitemap: https://pragma4.com/sitemap.xml
